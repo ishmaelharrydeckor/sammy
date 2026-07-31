@@ -146,13 +146,27 @@ export default function ConsultingPageClient() {
         id="hero"
         className="relative min-h-[80vh] w-full flex flex-col justify-center items-center py-20 z-10 bg-black overflow-hidden"
       >
-        <div className="absolute inset-0 z-0">
+        {/* Mobile Viewport: Centered vertical portrait */}
+        <div className="absolute inset-0 z-0 md:hidden">
           <Image
-            src="/images/samuel-hero.png"
-            alt="Dr. Samuel K. Adanuvo presenting live keynotes at business summits"
+            src="/images/samuel-portrait.png"
+            alt="Dr. Samuel K. Adanuvo vertical portrait"
             fill
             priority
-            className="object-cover object-right-top md:object-right"
+            className="object-cover object-[center_15%]"
+            sizes="100vw"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/60 to-black z-10"></div>
+        </div>
+
+        {/* Desktop Viewport: Right-aligned landscape background */}
+        <div className="absolute inset-0 z-0 hidden md:block">
+          <Image
+            src="/images/samuel-hero.png"
+            alt="Samuel Adanuvo Consulting"
+            fill
+            priority
+            className="object-cover object-right"
             sizes="100vw"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-black via-black/90 to-transparent z-10"></div>
