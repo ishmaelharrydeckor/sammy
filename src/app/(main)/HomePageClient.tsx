@@ -339,10 +339,10 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 3.5 Standalone Credential Proof Section (Light Background Break) */}
+      {/* 3. Credentials / Proof Section */}
       <section
-        id="credentials-proof"
-        className="relative border-t border-white/5 bg-[#E2E2E2] py-18 md:py-24 px-6 lg:px-8 z-10"
+        id="credentials"
+        className="relative border-t border-white/5 bg-[#E2E2E2] pt-28 pb-18 md:py-24 px-6 lg:px-8 z-10"
       >
         <div className="max-w-7xl mx-auto">
           {/* Header block with inverted text */}
@@ -361,8 +361,40 @@ export default function Home() {
             </p>
           </div>
 
-          {/* Staggered, Overlapping, Asymmetric Curated Composition */}
-          <div className="reveal-group relative h-[380px] sm:h-[480px] md:h-[650px] w-full max-w-5xl mx-auto mb-6">
+          {/* Separate Mobile and Desktop Layouts for Curated Composition */}
+          {/* Mobile layout (<md): 2-column grid with dominant image spanning full width on top */}
+          <div className="md:hidden grid grid-cols-2 gap-4 max-w-md mx-auto mb-12 reveal-group">
+            <div className="col-span-2 aspect-[4/3] relative border border-black/5 shadow-[0_10px_30px_rgba(0,0,0,0.1)] bg-[#DFDFDF] overflow-hidden group reveal-child">
+              <Image
+                src="/images/sigmart-fair-2024/sigmart_fair_1.jpg"
+                alt="Sigmart YAE Fair 2024 - Cash prize check handover at KNUST"
+                fill
+                className="object-cover object-center group-hover:scale-102 transition-transform duration-500 ease-out"
+                sizes="100vw"
+              />
+            </div>
+            <div className="aspect-[4/3] relative border border-black/5 shadow-[0_8px_20px_rgba(0,0,0,0.08)] bg-[#DFDFDF] overflow-hidden group reveal-child">
+              <Image
+                src="/images/sigmart-fair-2024/sigmart_fair_2.jpg"
+                alt="Sigmart YAE Fair 2024 - KNUST students photo booths"
+                fill
+                className="object-cover object-center group-hover:scale-103 transition-transform duration-500 ease-out"
+                sizes="50vw"
+              />
+            </div>
+            <div className="aspect-[4/3] relative border border-black/5 shadow-[0_8px_20px_rgba(0,0,0,0.08)] bg-[#DFDFDF] overflow-hidden group reveal-child">
+              <Image
+                src="/images/sigmart-fair-2024/sigmart_fair_3.jpg"
+                alt="Sigmart YAE Fair 2024 - KNUST Parade Grounds Expo setup"
+                fill
+                className="object-cover object-center group-hover:scale-103 transition-transform duration-500 ease-out"
+                sizes="50vw"
+              />
+            </div>
+          </div>
+
+          {/* Desktop layout (>=md): Staggered, Overlapping, Asymmetric Curated Composition */}
+          <div className="hidden md:block reveal-group relative md:h-[650px] w-full max-w-5xl mx-auto mb-6">
             {/* Image 1: Cash prize check handover (Largest, dominant, left-center position) */}
             <div className="reveal-child absolute left-0 top-[15%] w-[55%] aspect-[4/3] z-20 shadow-[0_20px_50px_rgba(0,0,0,0.15)] border border-black/5 bg-[#DFDFDF] overflow-hidden group">
               <Image
@@ -370,7 +402,7 @@ export default function Home() {
                 alt="Sigmart YAE Fair 2024 - Cash prize check handover at KNUST"
                 fill
                 className="object-cover object-center group-hover:scale-102 transition-transform duration-500 ease-out"
-                sizes="(max-width: 768px) 100vw, 600px"
+                sizes="600px"
               />
             </div>
 
@@ -381,7 +413,7 @@ export default function Home() {
                 alt="Sigmart YAE Fair 2024 - KNUST students photo booths"
                 fill
                 className="object-cover object-center group-hover:scale-103 transition-transform duration-500 ease-out"
-                sizes="(max-width: 768px) 100vw, 400px"
+                sizes="400px"
               />
             </div>
 
@@ -392,11 +424,10 @@ export default function Home() {
                 alt="Sigmart YAE Fair 2024 - KNUST Parade Grounds Expo setup"
                 fill
                 className="object-cover object-center group-hover:scale-103 transition-transform duration-500 ease-out"
-                sizes="(max-width: 768px) 100vw, 300px"
+                sizes="300px"
               />
             </div>
           </div>
-
         </div>
       </section>
 
