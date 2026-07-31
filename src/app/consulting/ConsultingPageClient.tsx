@@ -1,0 +1,606 @@
+"use client";
+
+import Image from "next/image";
+import Link from "next/link";
+import { useEffect, useRef, useState } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
+
+gsap.registerPlugin(ScrollTrigger);
+
+export default function ConsultingPageClient() {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
+  const [activeFaq, setActiveFaq] = useState<number | null>(null);
+
+  // Form state
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    subject: "Consulting",
+    message: ""
+  });
+  const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
+  const [statusMessage, setStatusMessage] = useState("");
+
+  // Check for prefers-reduced-motion
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+    setPrefersReducedMotion(mediaQuery.matches);
+    
+    const listener = (e: MediaQueryListEvent) => setPrefersReducedMotion(e.matches);
+    mediaQuery.addEventListener("change", listener);
+    return () => mediaQuery.removeEventListener("change", listener);
+  }, []);
+
+  useGSAP(
+    () => {
+      // Fade in animations for sections
+      const revealElements = gsap.utils.toArray(".reveal-up") as HTMLElement[];
+      revealElements.forEach((el) => {
+        const yOffset = prefersReducedMotion ? 0 : 20;
+        gsap.fromTo(
+          el,
+          { opacity: 0, y: yOffset },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: el,
+              start: "top 85%",
+              toggleActions: "play none none none",
+            },
+          }
+        );
+      });
+
+      // Staggered child reveals inside grids
+      const revealGroups = gsap.utils.toArray(".reveal-group") as HTMLElement[];
+      revealGroups.forEach((group) => {
+        const children = group.querySelectorAll(".reveal-child");
+        if (children.length > 0) {
+          const yOffset = prefersReducedMotion ? 0 : 15;
+          gsap.fromTo(
+            children,
+            { opacity: 0, y: yOffset },
+            {
+              opacity: 1,
+              y: 0,
+              duration: 0.6,
+              stagger: prefersReducedMotion ? 0 : 0.05,
+              ease: "power2.out",
+              scrollTrigger: {
+                trigger: group,
+                start: "top 85%",
+                toggleActions: "play none none none",
+              },
+            }
+          );
+        }
+      });
+    },
+    { scope: containerRef }
+  );
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!formData.name || !formData.email || !formData.message) {
+      setStatus("error");
+      setStatusMessage("Please fill in all required fields.");
+      return;
+    }
+
+    setStatus("submitting");
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData)
+      });
+
+      const data = await res.json();
+      if (res.ok) {
+        setStatus("success");
+        setStatusMessage("Strategy call request sent! Samuel's team will contact you within 2 business days.");
+        setFormData({ name: "", email: "", subject: "Consulting", message: "" });
+      } else {
+        setStatus("error");
+        setStatusMessage(data.error || "Something went wrong. Please try again.");
+      }
+    } catch (err) {
+      setStatus("error");
+      setStatusMessage("Network error. Please verify your connection and try again.");
+    }
+  };
+
+  const toggleFaq = (index: number) => {
+    setActiveFaq(activeFaq === index ? null : index);
+  };
+
+  const faqs = [
+    {
+      q: "How does the 90-day structure work?",
+      a: "We begin with a comprehensive audit of your operations, product lines, and numbers in Week 1. In Week 2, we deliver your customized 90-day roadmap. From Week 3 to 12, we hold weekly strategy and accountability sessions to execute the roadmap and troubleshoot roadblocks."
+    },
+    {
+      q: "Is this service virtual or in-person?",
+      a: "Both options are supported. Virtual consulting is conducted via high-bandwidth video meetings with shared documentation. In-person consulting sessions are available for founders based in Accra, subject to scheduling alignment."
+    },
+    {
+      q: "What industries do you work with?",
+      a: "This consulting program is industry-agnostic because it focuses on universal business engineering: pricing structures, customer acquisition mechanisms, cash flow velocity, and delegation systems. Samuel works with logistics, retail, services, and tech firms."
+    },
+    {
+      q: "What are the payment options?",
+      a: "Consulting engagements require an initial setup fee followed by structured monthly installments. Custom structures can be discussed during your initial strategy call based on your business complexity."
+    }
+  ];
+
+  return (
+    <div ref={containerRef} className="bg-black text-[#E2E2E2] min-h-screen">
+      {/* 1. Hero Section */}
+      <section
+        id="hero"
+        className="relative min-h-[80vh] w-full flex flex-col justify-center items-center py-20 z-10 bg-black overflow-hidden"
+      >
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="/images/samuel-hero.png"
+            alt="Dr. Samuel K. Adanuvo presenting live keynotes at business summits"
+            fill
+            priority
+            className="object-cover object-right-top md:object-right"
+            sizes="100vw"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-black via-black/90 to-transparent z-10"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-transparent to-black z-10"></div>
+        </div>
+
+        <div className="relative z-20 max-w-7xl mx-auto px-6 lg:px-8 w-full">
+          <div className="max-w-3xl flex flex-col justify-center text-left">
+            <span className="text-[10px] font-bold tracking-[0.25em] text-[#C5A059] uppercase mb-6 block">
+              90-DAY BUSINESS CONSULTING
+            </span>
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white uppercase leading-none mb-8">
+              Your business should be growing.<br />
+              <span className="text-[#C5A059]">If it isn't, something needs to change.</span>
+            </h1>
+            <p className="text-base sm:text-lg lg:text-xl font-light text-white/80 leading-relaxed mb-10 max-w-2xl">
+              Samuel works directly with small business owners who are stuck — making sales but not scaling, working hard but not building.
+            </p>
+            <div className="flex flex-wrap gap-4">
+              <Link
+                href="#booking"
+                className="rounded-none bg-[#C5A059] border border-[#C5A059] text-black px-8 py-4 text-xs font-bold tracking-[0.2em] hover:bg-[#a3803f] hover:border-[#a3803f] transition-all duration-300 uppercase whitespace-nowrap"
+              >
+                BOOK A FREE STRATEGY CALL
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 2. The Problem Section */}
+      <section
+        id="problem"
+        className="relative bg-[#E2E2E2] py-18 md:py-24 px-6 lg:px-8 z-10 text-black border-t border-white/5"
+      >
+        <div className="max-w-7xl mx-auto">
+          <div className="reveal-up mb-16 max-w-3xl">
+            <span className="text-[10px] font-bold tracking-[0.25em] text-[#C5A059] uppercase block mb-4">
+              THE REALITY OF MOST BUILDERS
+            </span>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight uppercase leading-tight mb-6">
+              Stuck in the Survival Loop
+            </h2>
+            <p className="text-base sm:text-lg font-light text-black/80 leading-relaxed">
+              Most business owners work 80-hour weeks only to watch their revenue hit a constant ceiling. They are generating cash flow and making sales, but they are not actually building a scalable asset.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 reveal-group items-stretch">
+            <div className="reveal-child flex flex-col justify-between p-8 bg-[#DFDFDF] border border-black/5 rounded-none hover:border-[#C5A059]/20 transition-colors duration-300">
+              <div>
+                <span className="text-[10px] font-mono tracking-widest text-[#C5A059] uppercase block mb-6">
+                  PAIN POINT 01
+                </span>
+                <h3 className="text-lg font-bold uppercase tracking-tight mb-4">
+                  The Revenue Ceiling
+                </h3>
+                <p className="text-xs sm:text-sm font-light text-black/70 leading-relaxed">
+                  You are generating cash flow, but you cannot break past your current revenue limits. Every growth push requires more hours, more stress, and more capital, only to end up right back where you started.
+                </p>
+              </div>
+            </div>
+
+            <div className="reveal-child flex flex-col justify-between p-8 bg-[#DFDFDF] border border-black/5 rounded-none hover:border-[#C5A059]/20 transition-colors duration-300">
+              <div>
+                <span className="text-[10px] font-mono tracking-widest text-[#C5A059] uppercase block mb-6">
+                  PAIN POINT 02
+                </span>
+                <h3 className="text-lg font-bold uppercase tracking-tight mb-4">
+                  The Owner Trap
+                </h3>
+                <p className="text-xs sm:text-sm font-light text-black/70 leading-relaxed">
+                  The entire business runs on your manual, day-to-day effort. If you take a week off, operations grind to a halt. You haven't built a business — you've just built a high-stress job where you are the bottleneck.
+                </p>
+              </div>
+            </div>
+
+            <div className="reveal-child flex flex-col justify-between p-8 bg-[#DFDFDF] border border-black/5 rounded-none hover:border-[#C5A059]/20 transition-colors duration-300">
+              <div>
+                <span className="text-[10px] font-mono tracking-widest text-[#C5A059] uppercase block mb-6">
+                  PAIN POINT 03
+                </span>
+                <h3 className="text-lg font-bold uppercase tracking-tight mb-4">
+                  Generic Playbooks
+                </h3>
+                <p className="text-xs sm:text-sm font-light text-black/70 leading-relaxed">
+                  You've read the generic business advice, but it doesn't align with the dynamics of local markets or your actual numbers. Without frameworks designed for the African context, you are playing a guessing game.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 3. The Offer Section */}
+      <section
+        id="offer"
+        className="relative bg-black py-18 md:py-24 px-6 lg:px-8 z-10 border-t border-white/5"
+      >
+        <div className="max-w-7xl mx-auto">
+          <div className="reveal-up mb-16 max-w-3xl">
+            <span className="text-[10px] font-bold tracking-[0.25em] text-[#C5A059] uppercase block mb-4">
+              THE SOLUTION
+            </span>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight uppercase leading-tight text-white mb-6">
+              The 90-Day Growth Engine
+            </h2>
+            <p className="text-base sm:text-lg font-light text-white/80 leading-relaxed">
+              This is not theoretical business advisory. Samuel goes directly into your business, audits your operations, and co-builds a structured 90-day roadmap designed for your actual market and actual numbers.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 reveal-group items-stretch">
+            <div className="reveal-child p-8 bg-[#0F0F0F] border border-white/5 flex flex-col justify-between">
+              <div>
+                <span className="text-[10px] font-mono tracking-widest text-[#C5A059] uppercase block mb-6">
+                  PHASE 01
+                </span>
+                <h3 className="text-lg font-bold uppercase tracking-tight text-white mb-4">
+                  Full Business Audit
+                </h3>
+                <p className="text-xs sm:text-sm font-light text-white/60 leading-relaxed">
+                  A deep-dive analysis of your current business model, margin performance, customer acquisition costs, and structural leaks.
+                </p>
+              </div>
+            </div>
+
+            <div className="reveal-child p-8 bg-[#0F0F0F] border border-white/5 flex flex-col justify-between">
+              <div>
+                <span className="text-[10px] font-mono tracking-widest text-[#C5A059] uppercase block mb-6">
+                  PHASE 02
+                </span>
+                <h3 className="text-lg font-bold uppercase tracking-tight text-white mb-4">
+                  Custom Roadmap
+                </h3>
+                <p className="text-xs sm:text-sm font-light text-white/60 leading-relaxed">
+                  We build a concrete 90-day operational playbook, specifying goals, pricing models, and system setups matching your resources.
+                </p>
+              </div>
+            </div>
+
+            <div className="reveal-child p-8 bg-[#0F0F0F] border border-white/5 flex flex-col justify-between">
+              <div>
+                <span className="text-[10px] font-mono tracking-widest text-[#C5A059] uppercase block mb-6">
+                  PHASE 03
+                </span>
+                <h3 className="text-lg font-bold uppercase tracking-tight text-white mb-4">
+                  Weekly Calls
+                </h3>
+                <p className="text-xs sm:text-sm font-light text-white/60 leading-relaxed">
+                  Structured strategy sessions and direct accountability checks with Samuel to implement milestones and optimize results.
+                </p>
+              </div>
+            </div>
+
+            <div className="reveal-child p-8 bg-[#0F0F0F] border border-white/5 flex flex-col justify-between">
+              <div>
+                <span className="text-[10px] font-mono tracking-widest text-[#C5A059] uppercase block mb-6">
+                  PHASE 04
+                </span>
+                <h3 className="text-lg font-bold uppercase tracking-tight text-white mb-4">
+                  Market Integration
+                </h3>
+                <p className="text-xs sm:text-sm font-light text-white/60 leading-relaxed">
+                  Integration of proven pricing structures, supply strategies, and expansion models engineered specifically for African markets.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 4. Proof Section */}
+      <section
+        id="proof"
+        className="relative bg-[#E2E2E2] py-18 md:py-24 px-6 lg:px-8 z-10 text-black border-t border-black/10"
+      >
+        <div className="max-w-7xl mx-auto">
+          <div className="reveal-up text-center mb-16 max-w-2xl mx-auto">
+            <span className="text-[10px] font-bold tracking-[0.25em] text-[#C5A059] uppercase block mb-4">
+              PROOF OF REAL WORLD RESULTS
+            </span>
+            <h2 className="text-3xl sm:text-4xl font-black uppercase tracking-tight mb-4">
+              Real Impact, Real Systems
+            </h2>
+            <p className="text-sm sm:text-base font-light text-black/85 leading-relaxed">
+              Samuel's consulting methodologies are backed by years of building real-world platforms, business fairs, and youth infrastructure.
+            </p>
+          </div>
+
+          {/* Sigmart Photo Composition */}
+          <div className="reveal-group relative h-[300px] sm:h-[400px] md:h-[550px] w-full max-w-4xl mx-auto mb-20">
+            <div className="reveal-child absolute left-0 top-[15%] w-[50%] aspect-[4/3] z-20 shadow-[0_20px_50px_rgba(0,0,0,0.1)] border border-black/5 bg-[#DFDFDF] overflow-hidden">
+              <Image
+                src="/images/sigmart-fair-2024/sigmart_fair_1.jpg"
+                alt="Sigmart YAE Fair 2024 - Cash prize check handover at KNUST"
+                fill
+                className="object-cover object-center"
+                sizes="(max-width: 768px) 100vw, 400px"
+              />
+            </div>
+            <div className="reveal-child absolute right-[5%] top-0 w-[35%] aspect-[4/3] z-10 shadow-[0_15px_35px_rgba(0,0,0,0.08)] border border-black/5 bg-[#DFDFDF] overflow-hidden">
+              <Image
+                src="/images/sigmart-fair-2024/sigmart_fair_2.jpg"
+                alt="Sigmart YAE Fair 2024 - KNUST students photo booths"
+                fill
+                className="object-cover object-center"
+                sizes="(max-width: 768px) 100vw, 300px"
+              />
+            </div>
+            <div className="reveal-child absolute right-[20%] top-[45%] w-[32%] aspect-[4/3] z-30 shadow-[0_25px_45px_rgba(0,0,0,0.12)] border border-black/5 bg-[#DFDFDF] overflow-hidden">
+              <Image
+                src="/images/sigmart-fair-2024/sigmart_fair_3.jpg"
+                alt="Sigmart YAE Fair 2024 - KNUST Parade Grounds Expo setup"
+                fill
+                className="object-cover object-center"
+                sizes="(max-width: 768px) 100vw, 250px"
+              />
+            </div>
+          </div>
+
+          {/* Testimonials */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch reveal-group">
+            <div className="reveal-child flex flex-col justify-between p-8 bg-[#DFDFDF] border border-black/5">
+              <div className="flex flex-col gap-4">
+                <span className="text-4xl font-serif text-[#C5A059] leading-none select-none">“</span>
+                <p className="text-sm sm:text-base font-light text-black/90 italic leading-relaxed">
+                  Samuel's Theory of Business Needs and his level of understanding of business systems has brought great clarity to me and my business operations.
+                </p>
+              </div>
+              <div className="mt-8 pt-4 border-t border-black/10 flex items-center justify-between text-[10px] font-black text-[#C5A059] tracking-wider uppercase">
+                <span>BENJAMIN S.</span>
+                <span className="text-black/40 font-normal">VERIFIED BUILDER</span>
+              </div>
+            </div>
+
+            <div className="reveal-child flex flex-col justify-between p-8 bg-[#DFDFDF] border border-black/5">
+              <div className="flex flex-col gap-4">
+                <span className="text-4xl font-serif text-[#C5A059] leading-none select-none">“</span>
+                <p className="text-sm sm:text-base font-light text-black/90 italic leading-relaxed">
+                  Samuel taught me the exact way to start a business without even needing capital. Amazing stuff!
+                </p>
+              </div>
+              <div className="mt-8 pt-4 border-t border-black/10 flex items-center justify-between text-[10px] font-black text-[#C5A059] tracking-wider uppercase">
+                <span>DIANA M.</span>
+                <span className="text-black/40 font-normal">VERIFIED BUILDER</span>
+              </div>
+            </div>
+
+            <div className="reveal-child flex flex-col justify-between p-8 bg-[#DFDFDF] border border-black/5">
+              <div className="flex flex-col gap-4">
+                <span className="text-4xl font-serif text-[#C5A059] leading-none select-none">“</span>
+                <p className="text-sm sm:text-base font-light text-black/90 italic leading-relaxed">
+                  Samuel showed me the exact steps to take to get new clients, and retain my old ones. He helped me create systems that ensure consistent cash flow.
+                </p>
+              </div>
+              <div className="mt-8 pt-4 border-t border-black/10 flex items-center justify-between text-[10px] font-black text-[#C5A059] tracking-wider uppercase">
+                <span>KWAME G.</span>
+                <span className="text-black/40 font-normal">VERIFIED BUILDER</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 5. Who This Is For Section */}
+      <section
+        id="who-it-is-for"
+        className="relative bg-black py-18 md:py-24 px-6 lg:px-8 z-10 border-t border-white/5"
+      >
+        <div className="max-w-7xl mx-auto">
+          <div className="reveal-up mb-16 max-w-3xl">
+            <span className="text-[10px] font-bold tracking-[0.25em] text-[#C5A059] uppercase block mb-4">
+              SUITABILITY AUDIT
+            </span>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight uppercase leading-tight text-white mb-6">
+              Who Samuel Works With
+            </h2>
+            <p className="text-base sm:text-lg font-light text-white/80 leading-relaxed">
+              Samuel does not accept all consulting applications. This program is exclusively built for business owners who meet specific operational criteria:
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 reveal-group items-stretch">
+            <div className="reveal-child p-8 bg-[#0F0F0F] border border-white/5">
+              <span className="text-[10px] font-mono tracking-widest text-[#C5A059] uppercase block mb-4">REQUIREMENT 01</span>
+              <h3 className="text-lg font-bold uppercase tracking-tight text-white mb-2">Steady Operations</h3>
+              <p className="text-xs sm:text-sm font-light text-white/60 leading-relaxed">
+                You must have an active business generating sales. This program is not for pre-revenue ideas — it is built to optimize, structure, and scale existing cash-flowing entities.
+              </p>
+            </div>
+
+            <div className="reveal-child p-8 bg-[#0F0F0F] border border-white/5">
+              <span className="text-[10px] font-mono tracking-widest text-[#C5A059] uppercase block mb-4">REQUIREMENT 02</span>
+              <h3 className="text-lg font-bold uppercase tracking-tight text-white mb-2">Commitment to Systems</h3>
+              <p className="text-xs sm:text-sm font-light text-white/60 leading-relaxed">
+                You must be ready to delegate tasks, restructure pricing, and build system processes. If you want to remain a solo-operator bottleneck forever, this roadmap will not align.
+              </p>
+            </div>
+
+            <div className="reveal-child p-8 bg-[#0F0F0F] border border-white/5">
+              <span className="text-[10px] font-mono tracking-widest text-[#C5A059] uppercase block mb-4">REQUIREMENT 03</span>
+              <h3 className="text-lg font-bold uppercase tracking-tight text-white mb-2">Accountability</h3>
+              <p className="text-xs sm:text-sm font-light text-white/60 leading-relaxed">
+                You must attend the weekly strategy reviews and implement the agreed milestones. Samuel provides the frameworks and mapping, but execution rests on the founder.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 6. FAQ Section */}
+      <section
+        id="faq"
+        className="relative bg-[#E2E2E2] py-18 md:py-24 px-6 lg:px-8 z-10 text-black border-t border-black/10"
+      >
+        <div className="max-w-4xl mx-auto">
+          <div className="reveal-up text-center mb-16">
+            <span className="text-[10px] font-bold tracking-[0.25em] text-[#C5A059] uppercase block mb-4">
+              OBJECTION HANDLING
+            </span>
+            <h2 className="text-3xl sm:text-4xl font-black uppercase tracking-tight mb-4">
+              Frequently Asked Questions
+            </h2>
+          </div>
+
+          <div className="space-y-4 reveal-group">
+            {faqs.map((faq, idx) => (
+              <div
+                key={idx}
+                className="reveal-child border-b border-black/10 pb-4"
+              >
+                <button
+                  onClick={() => toggleFaq(idx)}
+                  className="w-full flex items-center justify-between text-left py-4 focus:outline-none group"
+                >
+                  <span className="text-base sm:text-lg font-bold uppercase tracking-tight text-black group-hover:text-[#C5A059] transition-colors duration-200">
+                    {faq.q}
+                  </span>
+                  <span className="text-xl font-mono text-[#C5A059] ml-4">
+                    {activeFaq === idx ? "—" : "+"}
+                  </span>
+                </button>
+                <div
+                  className={`overflow-hidden transition-all duration-300 ease-in-out ${
+                    activeFaq === idx ? "max-h-[200px] opacity-100 mt-2" : "max-h-0 opacity-0"
+                  }`}
+                >
+                  <p className="text-xs sm:text-sm font-light text-black/70 leading-relaxed pl-2 pb-2">
+                    {faq.a}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 7. Final CTA Section */}
+      <section
+        id="booking"
+        className="relative bg-black py-18 md:py-24 px-6 lg:px-8 z-10 border-t border-white/5"
+      >
+        <div className="max-w-3xl mx-auto">
+          <div className="reveal-up text-center mb-16">
+            <span className="text-[10px] font-bold tracking-[0.25em] text-[#C5A059] uppercase block mb-4">
+              SECURE YOUR FOLD
+            </span>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight uppercase leading-tight text-white mb-6">
+              Book Your Strategy Call
+            </h2>
+            <p className="text-sm sm:text-base font-light text-white/60 leading-relaxed max-w-xl mx-auto">
+              Ready to break the survival cycle? Fill in your details below. Samuel's team will audit your request and contact you to schedule your free strategy call.
+            </p>
+          </div>
+
+          <form onSubmit={handleSubmit} className="reveal-up space-y-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <div className="flex flex-col">
+                <label htmlFor="name" className="text-[9px] font-mono tracking-widest text-white/40 uppercase mb-2">
+                  FULL NAME *
+                </label>
+                <input
+                  type="text"
+                  id="name"
+                  required
+                  value={formData.name}
+                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                  disabled={status === "submitting"}
+                  className="bg-black border border-white/10 px-4 py-4 text-xs font-mono text-white placeholder:text-white/20 tracking-widest focus:outline-none focus:border-[#C5A059] disabled:opacity-50"
+                  placeholder="ENTER YOUR NAME"
+                />
+              </div>
+
+              <div className="flex flex-col">
+                <label htmlFor="email" className="text-[9px] font-mono tracking-widest text-white/40 uppercase mb-2">
+                  EMAIL ADDRESS *
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  required
+                  value={formData.email}
+                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                  disabled={status === "submitting"}
+                  className="bg-black border border-white/10 px-4 py-4 text-xs font-mono text-white placeholder:text-white/20 tracking-widest focus:outline-none focus:border-[#C5A059] disabled:opacity-50"
+                  placeholder="ENTER YOUR EMAIL"
+                />
+              </div>
+            </div>
+
+            <div className="flex flex-col">
+              <label htmlFor="message" className="text-[9px] font-mono tracking-widest text-white/40 uppercase mb-2">
+                TELL US ABOUT YOUR BUSINESS (CURRENT REVENUE, TEAM SIZE, GOALS) *
+              </label>
+              <textarea
+                id="message"
+                required
+                rows={5}
+                value={formData.message}
+                onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                disabled={status === "submitting"}
+                className="bg-black border border-white/10 px-4 py-4 text-xs font-mono text-white placeholder:text-white/20 tracking-widest focus:outline-none focus:border-[#C5A059] disabled:opacity-50 resize-none"
+                placeholder="DESCRIBE YOUR CURRENT SITUATION"
+              />
+            </div>
+
+            {status === "success" ? (
+              <div className="bg-[#C5A059]/10 border border-[#C5A059]/30 p-4 text-xs text-white tracking-wide text-center">
+                ✓ {statusMessage}
+              </div>
+            ) : (
+              <div className="flex flex-col gap-4">
+                <button
+                  type="submit"
+                  disabled={status === "submitting"}
+                  className="w-full rounded-none bg-[#C5A059] border border-[#C5A059] text-black py-4 text-xs font-bold tracking-[0.2em] hover:bg-[#a3803f] hover:border-[#a3803f] transition-all duration-300 disabled:opacity-50 uppercase"
+                >
+                  {status === "submitting" ? "REQUESTING..." : "BOOK A FREE STRATEGY CALL"}
+                </button>
+                {status === "error" && (
+                  <p className="text-xs text-red-500 text-center font-mono">{statusMessage}</p>
+                )}
+              </div>
+            )}
+          </form>
+        </div>
+      </section>
+    </div>
+  );
+}

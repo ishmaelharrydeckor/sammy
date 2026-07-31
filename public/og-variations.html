@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Samuel Adanuvo - OG Image Variations</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 40px;
+      background-color: #121214;
+      font-family: 'Inter', sans-serif;
+      color: #E2E2E2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 60px;
+    }
+    
+    .variation-title {
+      font-size: 24px;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #C5A059;
+      margin-bottom: 10px;
+    }
+
+    /* OG Card constraints: 1200px width, 630px height */
+    .og-card {
+      width: 1200px;
+      height: 630px;
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+      background-color: #000000;
+    }
+
+    /* Variation 1: The Authority Classic (Editorial Split) */
+    .v1-left {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 60%;
+      height: 100%;
+      background-color: #0A0A0B;
+      z-index: 2;
+      padding: 80px;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .v1-tag {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.3em;
+      color: #C5A059;
+      text-transform: uppercase;
+    }
+    .v1-name {
+      font-size: 56px;
+      font-weight: 900;
+      letter-spacing: -0.02em;
+      color: #FFFFFF;
+      text-transform: uppercase;
+      line-height: 1.1;
+      margin: 20px 0 10px 0;
+    }
+    .v1-title {
+      font-size: 20px;
+      font-weight: 300;
+      letter-spacing: 0.05em;
+      color: #C5A059;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+    .v1-desc {
+      font-size: 15px;
+      font-weight: 300;
+      line-height: 1.6;
+      color: rgba(255, 255, 255, 0.7);
+      max-w-md;
+    }
+    .v1-footer {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      color: rgba(255, 255, 255, 0.4);
+      text-transform: uppercase;
+      border-t: 1px solid rgba(255, 255, 255, 0.05);
+      padding-top: 20px;
+      display: flex;
+      justify-content: space-between;
+    }
+    .v1-right {
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: 45%;
+      height: 100%;
+      z-index: 1;
+    }
+    .v1-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+    }
+    .v1-overlay {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to right, #0A0A0B 10%, transparent 80%);
+      z-index: 1;
+    }
+    .v1-border-accent {
+      position: absolute;
+      left: 55%;
+      top: 0;
+      width: 2px;
+      height: 100%;
+      background-color: #C5A059;
+      opacity: 0.3;
+      z-index: 3;
+    }
+
+    /* Variation 2: The Builder Hook (Typographic Focus) */
+    .v2-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+    }
+    .v2-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 25%;
+      opacity: 0.5;
+    }
+    .v2-overlay {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 75% 50%, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.95) 80%);
+      z-index: 2;
+    }
+    .v2-content {
+      position: relative;
+      z-index: 3;
+      height: 100%;
+      padding: 80px;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      max-w-4xl;
+    }
+    .v2-hook {
+      font-size: 46px;
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+      text-transform: uppercase;
+      color: #E2E2E2;
+    }
+    .v2-hook span {
+      color: #C5A059;
+    }
+    .v2-profile {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    .v2-line {
+      width: 60px;
+      height: 2px;
+      background-color: #C5A059;
+    }
+    .v2-name {
+      font-size: 28px;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      color: #FFFFFF;
+      text-transform: uppercase;
+    }
+    .v2-subtitle {
+      font-size: 13px;
+      font-weight: 400;
+      letter-spacing: 0.15em;
+      color: rgba(255, 255, 255, 0.5);
+      text-transform: uppercase;
+      margin-top: 4px;
+    }
+
+    /* Variation 3: The Minimal Grid (Split Modernism) */
+    .v3-split {
+      display: flex;
+      width: 100%;
+      height: 100%;
+    }
+    .v3-left {
+      width: 50%;
+      height: 100%;
+      background-color: #E2E2E2;
+      padding: 80px;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      color: #000000;
+    }
+    .v3-title-block h2 {
+      font-size: 64px;
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      line-height: 0.95;
+      margin: 0 0 15px 0;
+      text-transform: uppercase;
+    }
+    .v3-title-block h2 span {
+      color: #C5A059;
+      display: block;
+    }
+    .v3-title-block p {
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(0, 0, 0, 0.4);
+    }
+    .v3-focus {
+      font-size: 20px;
+      font-weight: 300;
+      line-height: 1.5;
+      color: rgba(0, 0, 0, 0.8);
+      max-w-sm;
+      border-left: 2px solid #C5A059;
+      padding-left: 20px;
+    }
+    .v3-right {
+      width: 50%;
+      height: 100%;
+      position: relative;
+      background-color: #000000;
+    }
+    .v3-img-container {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      overflow: hidden;
+    }
+    .v3-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+    }
+    .v3-frame {
+      position: absolute;
+      inset: 40px;
+      border: 1px solid #C5A059;
+      pointer-events: none;
+      z-index: 2;
+      opacity: 0.4;
+    }
+  </style>
+</head>
+<body>
+
+  <div>
+    <div class="variation-title">Variation 1: The Authority Classic (Editorial Split)</div>
+    <div class="og-card" id="card-v1">
+      <div class="v1-left">
+        <div>
+          <span class="v1-tag">// PERSONAL BRAND PLATFORM</span>
+          <h1 class="v1-name">SAMUEL<br>ADANUVO</h1>
+          <div class="v1-title">CEO · Author · Entrepreneur Educator</div>
+          <p class="v1-desc">Equipping young Africans with the mental frameworks, economic realities, and systems required to build real wealth, not just income.</p>
+        </div>
+        <div class="v1-footer">
+          <span>OUTBROOKS TECHNOLOGY</span>
+          <span>THE ECONOMY OF THE YOUNG AFRICAN MIND</span>
+        </div>
+      </div>
+      <div class="v1-border-accent"></div>
+      <div class="v1-right">
+        <div class="v1-overlay"></div>
+        <img class="v1-img" src="/images/samuel-portrait.png" alt="Samuel Adanuvo">
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <div class="variation-title">Variation 2: The Builder Hook (Typographic Focus)</div>
+    <div class="og-card" id="card-v2">
+      <div class="v2-bg">
+        <img class="v2-img" src="/images/samuel-hero.png" alt="Samuel Adanuvo">
+        <div class="v2-overlay"></div>
+      </div>
+      <div class="v2-content">
+        <div class="v2-hook">
+          Young Africa doesn't need<br>more information.<br><span>It needs people who<br>know how to build.</span>
+        </div>
+        <div class="v2-profile">
+          <div class="v2-line"></div>
+          <div>
+            <div class="v2-name">SAMUEL ADANUVO</div>
+            <div class="v2-subtitle">CEO, Outbrooks Technology · Author · Educator</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <div class="variation-title">Variation 3: The Minimal Grid (Split Modernism)</div>
+    <div class="og-card" id="card-v3">
+      <div class="v3-split">
+        <div class="v3-left">
+          <div class="v3-title-block">
+            <p>// STRATEGY & SYSTEMS</p>
+            <h2>SAMUEL<br><span>ADANUVO</span></h2>
+          </div>
+          <div class="v3-focus">
+            Building wealth from the ground up — the mindset and the mechanics.
+          </div>
+        </div>
+        <div class="v3-right">
+          <div class="v3-frame"></div>
+          <div class="v3-img-container">
+            <img class="v3-img" src="/images/samuel-portrait.png" alt="Samuel Adanuvo">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

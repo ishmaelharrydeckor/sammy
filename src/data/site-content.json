@@ -1,0 +1,123 @@
+{
+  "hero": {
+    "subtitle": "SAMUEL ADANUVO · CEO | AUTHOR | ENTREPRENEUR EDUCATOR",
+    "headline": "Young Africa doesn't need\nmore information.\nIt needs people who\nknow how to build.",
+    "ctaText": "BOOK A FREE STRATEGY CALL",
+    "image": "/images/samuel-hero.png",
+    "credentials": [
+      { "label": "CEO", "value": "Outbrooks Technology Limited" },
+      { "label": "FOUNDER", "value": "Sigmart YAE" },
+      { "label": "AUTHOR", "value": "The Economy of the Young African Mind" }
+    ],
+    "locations": "ACCRA · LONDON"
+  },
+  "intro": {
+    "title": "BUILD",
+    "paragraph": "Samuel works with young Africans who are done waiting for permission to build wealth. Through consulting, community, and content — he helps ambitious people turn the businesses they have into the businesses they actually want."
+  },
+  "about": {
+    "badge": "ABOUT SAMUEL",
+    "sidebarHeading": "CEO · FOUNDER · AUTHOR",
+    "sidebarSub": "Outbrooks · Sigmart YAE",
+    "heading": "Samuel didn't start as a business consultant. He trained as a pharmacist.",
+    "portraitImage": "/images/samuel-portrait.png",
+    "paragraphs": [
+      "But somewhere between studying compounds and watching people around him struggle to build anything sustainable, he realized the problem wasn't resources. It was the absence of a business mind.",
+      "That realization became everything he does today.",
+      "Samuel is the CEO of Outbrooks Technology Limited, Founder of Sigmart YAE, and the author of The Economy of the Young African Mind. He speaks, teaches, consults, and builds — all toward one thing: equipping young Africans to create real wealth, not just income.",
+      "The work is personal. This continent has everything it needs. It just has to think differently about it."
+    ],
+    "ctaText": "LEARN MORE ABOUT SAMUEL'S WORK"
+  },
+  "programs": {
+    "title": "Work With Samuel",
+    "subtitle": "Two ways to go further, faster.",
+    "offers": [
+      {
+        "badge": "OFFER 1",
+        "title": "90-Day Business Growth Consulting",
+        "description": "Your business should be growing. If it isn't, something needs to change. Samuel works directly with small business owners who are stuck — making sales but not scaling, working hard but not building. Over 90 days, he goes into the business, finds what's holding it back, and builds a clear path forward. This isn't generic advice. It's specific, strategic, and built around the client's actual numbers and actual market.",
+        "featuresTitle": "What you get:",
+        "features": [
+          "A full audit of your business model and current gaps",
+          "A 90-day growth roadmap built for your context",
+          "Weekly strategy sessions with direct accountability",
+          "Access to frameworks that work for African markets"
+        ],
+        "ctaText": "BOOK A FREE STRATEGY CALL"
+      },
+      {
+        "badge": "OFFER 2",
+        "title": "Speaking Engagements",
+        "description": "The right message, delivered to the right room, changes everything. Samuel speaks on business strategy, leadership, and the mindset behind building real wealth — to corporate teams, universities, conferences, and youth organizations across Africa and beyond. These aren't motivational talks for their own sake. Every session is built to leave the audience with a shift in how they think and a clear direction for what to do next.",
+        "featuresTitle": "Topics Samuel speaks on:",
+        "features": [
+          "Building wealth from the ground up — the mindset and the mechanics",
+          "Leadership that actually produces results",
+          "Business strategy for the African market",
+          "The economy of the young African mind"
+        ],
+        "closing": "If you're organizing an event and want a speaker who will add real value to your audience, reach out.",
+        "ctaText": "BOOK SAMUEL TO SPEAK"
+      }
+    ]
+  },
+  "book": {
+    "title": "THE ECONOMY OF THE YOUNG AFRICAN MIND",
+    "author": "By Samuel Adanuvo",
+    "coverImage": "/images/book-cover.png",
+    "description": "This book is about what happens when a young African decides to think like a builder instead of a survivor. It covers the mental frameworks, the economic realities, and the wealth principles that most people on this continent were never taught — and what changes when they finally are.",
+    "quote": "“Unless you rewire your internal economy and retrain your thinking, beliefs, and sense of possibility, nothing that flows out of you will create any meaningful impact or lasting wealth.”",
+    "quoteSource": "— FROM THE BOOK",
+    "status": "The full release is coming. Be among the first to know.",
+    "ctaText": "JOIN THE WAITLIST"
+  },
+  "events": {
+    "title": "EVENT HIGHLIGHTS",
+    "headline": "MINDS, MARKETS & MOVEMENTS 1.0",
+    "locationTime": "JULY 2026 | KNUST, KUMASI, GHANA",
+    "description": "A past live summit for young African entrepreneurs. One day. Real conversations. Serious strategy. More events will be announced. Stay connected.",
+    "ctaText": "SEE HIGHLIGHTS"
+  },
+  "testimonials": {
+    "title": "Testimonials",
+    "items": [
+      {
+        "quote": "“Samuel's Theory of Business Needs and his level of understanding of business systems has brought great clarity to me and my business operations.”",
+        "author": "BENJAMIN S."
+      },
+      {
+        "quote": "“Samuel taught me the exact way to start a business without even needing capital. Amazing stuff!”",
+        "author": "DIANA M."
+      },
+      {
+        "quote": "“Samuel showed me the exact steps to take to get new clients, and retain my old ones. He helped me create systems that ensure consistent cash flow.”",
+        "author": "KWAME G."
+      }
+    ]
+  },
+  "contact": {
+    "title": "GET IN TOUCH",
+    "description": "Whether you're exploring consulting, have a question about MMM 1.0, or just want to connect — reach out. Samuel's team responds within 2 business days.",
+    "form": {
+      "nameLabel": "FULL NAME",
+      "emailLabel": "EMAIL ADDRESS",
+      "subjectLabel": "SUBJECT",
+      "subjectOptions": ["Consulting", "MMM 1.0", "Speaking", "Other"],
+      "messageLabel": "MESSAGE",
+      "ctaText": "SEND MESSAGE"
+    }
+  },
+  "footer": {
+    "connectTitle": "LET'S CONNECT",
+    "connectDescription": "Samuel puts out content on business, wealth-building, and the African entrepreneurial mindset — consistently, across platforms. Follow along for content worth your time. No fluff. Just content worth your time.",
+    "socials": [
+      { "name": "LINKEDIN", "url": "https://www.linkedin.com/in/dr-samuel-adanuvo-a76955210" },
+      { "name": "INSTAGRAM", "url": "https://www.instagram.com/sammy_adanuvo" },
+      { "name": "YOUTUBE", "url": "https://youtube.com/@sammyadanuvo" },
+      { "name": "TIKTOK", "url": "https://www.tiktok.com/@sammy_adanuvo" },
+      { "name": "FACEBOOK", "url": "https://www.facebook.com/share/1MAESjaEMo/" }
+    ],
+    "copyright": "© 2026 SAMUEL ADANUVO | OUTBROOKS TECHNOLOGY LIMITED. ALL RIGHTS RESERVED."
+  }
+}
