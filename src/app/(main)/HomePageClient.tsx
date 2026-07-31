@@ -72,24 +72,17 @@ export default function Home() {
     }
   };
 
-  const [isMobile, setIsMobile] = useState(false);
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
 
   useEffect(() => {
+    // Check user motion preference
     const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
     setPrefersReducedMotion(mediaQuery.matches);
     const motionListener = (e: MediaQueryListEvent) => setPrefersReducedMotion(e.matches);
     mediaQuery.addEventListener("change", motionListener);
 
-    const handleResize = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
-    handleResize();
-    window.addEventListener("resize", handleResize);
-
     return () => {
       mediaQuery.removeEventListener("change", motionListener);
-      window.removeEventListener("resize", handleResize);
     };
   }, []);
 
@@ -188,7 +181,7 @@ export default function Home() {
       >
         {/* Background Video / Static image overlay container */}
         <div className="absolute inset-0 z-0">
-          {!prefersReducedMotion && !isMobile ? (
+          {!prefersReducedMotion ? (
             <video
               autoPlay
               muted
