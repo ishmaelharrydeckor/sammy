@@ -339,43 +339,12 @@ export default function ConsultingPageClient() {
               Real Impact, Real Systems
             </h2>
             <p className="text-sm sm:text-base font-light text-black/85 leading-relaxed">
-              Samuel's consulting methodologies are backed by years of building real-world platforms, business fairs, and youth infrastructure.
+              Samuel's consulting methodologies are backed by years of building real-world platforms, scalable business models, and operations.
             </p>
           </div>
 
-          {/* Sigmart Photo Composition */}
-          <div className="reveal-group relative h-[300px] sm:h-[400px] md:h-[550px] w-full max-w-4xl mx-auto mb-20">
-            <div className="reveal-child absolute left-0 top-[15%] w-[50%] aspect-[4/3] z-20 shadow-[0_20px_50px_rgba(0,0,0,0.1)] border border-black/5 bg-[#DFDFDF] overflow-hidden">
-              <Image
-                src="/images/sigmart-fair-2024/sigmart_fair_1.jpg"
-                alt="Sigmart YAE Fair 2024 - Cash prize check handover at KNUST"
-                fill
-                className="object-cover object-center"
-                sizes="(max-width: 768px) 100vw, 400px"
-              />
-            </div>
-            <div className="reveal-child absolute right-[5%] top-0 w-[35%] aspect-[4/3] z-10 shadow-[0_15px_35px_rgba(0,0,0,0.08)] border border-black/5 bg-[#DFDFDF] overflow-hidden">
-              <Image
-                src="/images/sigmart-fair-2024/sigmart_fair_2.jpg"
-                alt="Sigmart YAE Fair 2024 - KNUST students photo booths"
-                fill
-                className="object-cover object-center"
-                sizes="(max-width: 768px) 100vw, 300px"
-              />
-            </div>
-            <div className="reveal-child absolute right-[20%] top-[45%] w-[32%] aspect-[4/3] z-30 shadow-[0_25px_45px_rgba(0,0,0,0.12)] border border-black/5 bg-[#DFDFDF] overflow-hidden">
-              <Image
-                src="/images/sigmart-fair-2024/sigmart_fair_3.jpg"
-                alt="Sigmart YAE Fair 2024 - KNUST Parade Grounds Expo setup"
-                fill
-                className="object-cover object-center"
-                sizes="(max-width: 768px) 100vw, 250px"
-              />
-            </div>
-          </div>
-
           {/* Testimonials */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch reveal-group">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch reveal-group mt-12 md:mt-16">
             <div className="reveal-child flex flex-col justify-between p-8 bg-[#DFDFDF] border border-black/5">
               <div className="flex flex-col gap-4">
                 <span className="text-4xl font-serif text-[#C5A059] leading-none select-none">“</span>
