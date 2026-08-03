@@ -978,7 +978,7 @@ export default function Home() {
                     {item.author}
                   </span>
                   <span className="text-[9px] font-mono tracking-widest text-black/40 uppercase">
-                    VERIFIED BUILDER
+                    VERIFIED CLIENT
                   </span>
                 </div>
               </div>
