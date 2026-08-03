@@ -212,8 +212,8 @@ export default function Home() {
             <span className="hero-subtitle text-[11px] font-light tracking-[0.25em] text-[#C5A059] uppercase mb-6 block">
               {content.hero.subtitle}
             </span>
-            <h1 className="hero-title text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white leading-[1.1] uppercase mb-8 whitespace-pre-line">
-              {content.hero.headline}
+            <h1 className="hero-title text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white leading-snug mb-8">
+              Professionals build careers on being good at their work. Samuel builds <span className="text-[#C5A059] font-extrabold">the systems</span> that turn that skill into recurring clients and <span className="text-[#C5A059] font-extrabold">predictable revenue</span>.
             </h1>
             
             {content.hero.subtext && (
