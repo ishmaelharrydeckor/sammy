@@ -1011,10 +1011,10 @@ export default function Home() {
                     EMAIL INQUIRIES
                   </span>
                   <a
-                    href="mailto:info@outbrookstechnology.com"
+                    href="mailto:outbrookstechnology@gmail.com"
                     className="text-sm font-black text-white hover:text-[#C5A059] transition-colors mt-1 tracking-wider"
                   >
-                    info@outbrookstechnology.com
+                    outbrookstechnology@gmail.com
                   </a>
                 </div>
                 <div className="flex flex-col">
