@@ -179,8 +179,8 @@ export default function ConsultingPageClient() {
               BUSINESS GROWTH CONSULTING
             </span>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white uppercase leading-tight mb-8">
-              You are just one call away from<br />
-              <span className="text-[#C5A059]">multiplied revenue and growing your business</span>
+              You are just <span className="text-[#C5A059]">one call</span> away from<br />
+              <span className="text-[#C5A059]">multiplied revenue</span> and <span className="text-[#C5A059]">growing your business</span>
             </h1>
             <p className="text-base sm:text-lg lg:text-xl font-light text-white/80 leading-relaxed mb-10 max-w-2xl">
               Samuel works with credentialed professionals and organizations who are good at what they do but don't have a system bringing in clients consistently. He builds the offers and client acquisition systems that turn expertise into recurring revenue.
