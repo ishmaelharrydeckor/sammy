@@ -1,7 +1,8 @@
 {
   "hero": {
     "subtitle": "SAMUEL ADANUVO · CEO | AUTHOR | ENTREPRENEUR EDUCATOR",
-    "headline": "Young Africa doesn't need\nmore information.\nIt needs people who\nknow how to build.",
+    "headline": "Professionals build careers on being good at their work. Samuel builds the systems that turn that skill into recurring clients and predictable revenue.",
+    "subtext": "Samuel works with credentialed professionals and organizations who want recurring clientele and permanent client acquisition systems. His solutions have helped clients 10x revenue and they are built through the offers, lead generation, and marketing structures that turn expertise into consistent business.",
     "ctaText": "BOOK A FREE STRATEGY CALL",
     "image": "/images/samuel-hero.png",
     "credentials": [
@@ -9,7 +10,7 @@
       { "label": "FOUNDER", "value": "Sigmart YAE" },
       { "label": "AUTHOR", "value": "The Economy of the Young African Mind" }
     ],
-    "locations": "ACCRA · LONDON"
+    "locations": "KUMASI · ACCRA · AND WHEREVER HE'S NEEDED"
   },
   "intro": {
     "title": "BUILD",
@@ -19,13 +20,12 @@
     "badge": "ABOUT SAMUEL",
     "sidebarHeading": "CEO · FOUNDER · AUTHOR",
     "sidebarSub": "Outbrooks · Sigmart YAE",
-    "heading": "Samuel didn't start as a business consultant. He trained as a pharmacist.",
+    "heading": "Samuel builds the systems behind businesses that grow without guesswork.",
     "portraitImage": "/images/samuel-portrait.png",
     "paragraphs": [
-      "But somewhere between studying compounds and watching people around him struggle to build anything sustainable, he realized the problem wasn't resources. It was the absence of a business mind.",
-      "That realization became everything he does today.",
-      "Samuel is the CEO of Outbrooks Technology Limited, Founder of Sigmart YAE, and the author of The Economy of the Young African Mind. He speaks, teaches, consults, and builds — all toward one thing: equipping young Africans to create real wealth, not just income.",
-      "The work is personal. This continent has everything it needs. It just has to think differently about it."
+      "Samuel is a business growth consultant working with credentialed professionals(doctors, lawyers, pharmacists, engineers etc.) in their businesses as well as organizations. He builds the offers, lead generation systems, and marketing structures that turn expertise into recurring clients and predictable revenue.",
+      "He is the CEO of Outbrooks Technology Limited, Founder and Project Lead of the Sigmart YAE Network, and the author of The Economy of the Young African Mind. His background includes a Doctor of Pharmacy, and that same discipline is what he brings into every client engagement.",
+      "The work is simple in principle: most professionals are excellent at what they do and still don't have a system bringing them consistent clients. Samuel builds that system."
     ],
     "ctaText": "LEARN MORE ABOUT SAMUEL'S WORK"
   },
@@ -35,14 +35,14 @@
     "offers": [
       {
         "badge": "OFFER 1",
-        "title": "90-Day Business Growth Consulting",
-        "description": "Your business should be growing. If it isn't, something needs to change. Samuel works directly with small business owners who are stuck — making sales but not scaling, working hard but not building. Over 90 days, he goes into the business, finds what's holding it back, and builds a clear path forward. This isn't generic advice. It's specific, strategic, and built around the client's actual numbers and actual market.",
+        "title": "Business Growth Consulting",
+        "description": "Your business should be growing. If it isn't, something needs to change. Samuel works with professionals and organizations who are making sales but not scaling. They are good at the work but don't have a system bringing in clients consistently. Engagements range from a single strategy session to done-with-you and done-for-you consulting, including yearly contracts for organizations that want an ongoing growth partner. Every engagement is built around the client's actual numbers, actual offer, and actual market, not generic advice.",
         "featuresTitle": "What you get:",
         "features": [
-          "A full audit of your business model and current gaps",
-          "A 90-day growth roadmap built for your context",
-          "Weekly strategy sessions with direct accountability",
-          "Access to frameworks that work for African markets"
+          "A clear audit of your offer, client acquisition, and current gaps",
+          "A growth roadmap built for your business and your goals",
+          "Flexible engagement models, from a single strategy session to full done-for-you systems",
+          "Direct accountability, with frameworks proven to help clients grow revenue significantly"
         ],
         "ctaText": "BOOK A FREE STRATEGY CALL"
       },
@@ -79,6 +79,30 @@
     "description": "A past live summit for young African entrepreneurs. One day. Real conversations. Serious strategy. More events will be announced. Stay connected.",
     "ctaText": "SEE HIGHLIGHTS"
   },
+  "videoInsights": {
+    "title": "Watch Samuel in Action",
+    "description": "Explore business growth frameworks, wealth structures, and practical strategy shared live by Samuel.",
+    "items": [
+      {
+        "title": "The 4 Levels of Income",
+        "desc": "Why most people never leave Level 2 and how to transition to building sustainable wealth systems.",
+        "url": "https://youtu.be/Qq8g1lp1Fis?si=zG33LhbUqx0FHAvy",
+        "tag": "WEALTH SYSTEMS"
+      },
+      {
+        "title": "Money Systems for Believers",
+        "desc": "Understanding the financial mindsets and principles crucial for building wealth as a Christian.",
+        "url": "https://youtu.be/oDKK2ZyhHvo?si=Rq28_wYWXPR-sLwl",
+        "tag": "STRATEGY & FAITH"
+      },
+      {
+        "title": "The Mystery of Money Systems",
+        "desc": "How to go from zero to wealth fast by understanding the structures of cash flow and assets.",
+        "url": "https://youtu.be/wkb2Sa4wj6c?si=owB1Yu47atW3Bj1n",
+        "tag": "BUSINESS ACCELERATION"
+      }
+    ]
+  },
   "testimonials": {
     "title": "Testimonials",
     "items": [
@@ -110,7 +134,7 @@
   },
   "footer": {
     "connectTitle": "LET'S CONNECT",
-    "connectDescription": "Samuel puts out content on business, wealth-building, and the African entrepreneurial mindset — consistently, across platforms. Follow along for content worth your time. No fluff. Just content worth your time.",
+    "connectDescription": "Samuel shares practical insights on business growth, offers, and client acquisition consistently, across platforms. Follow along for content that's actually worth your time.",
     "socials": [
       { "name": "LINKEDIN", "url": "https://www.linkedin.com/in/dr-samuel-adanuvo-a76955210" },
       { "name": "INSTAGRAM", "url": "https://www.instagram.com/sammy_adanuvo" },

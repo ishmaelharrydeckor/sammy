@@ -122,20 +122,20 @@ export default function ConsultingPageClient() {
 
   const faqs = [
     {
-      q: "How does the 90-day structure work?",
-      a: "We begin with a comprehensive audit of your operations, product lines, and numbers in Week 1. In Week 2, we deliver your customized 90-day roadmap. From Week 3 to 12, we hold weekly strategy and accountability sessions to execute the roadmap and troubleshoot roadblocks."
+      q: "How does the engagement work?",
+      a: "We begin with a full audit of your offer, pricing, and client acquisition in the first stage. From there, you get a custom growth roadmap built around your business. Depending on the level of support you choose, we move into regular strategy sessions, or Samuel and his team implement the system directly with you."
     },
     {
       q: "Is this service virtual or in-person?",
-      a: "Both options are supported. Virtual consulting is conducted via high-bandwidth video meetings with shared documentation. In-person consulting sessions are available for founders based in Accra, subject to scheduling alignment."
+      a: "Both. Virtual consulting runs through video calls with shared documentation. In-person sessions are available depending on location, subject to scheduling."
     },
     {
       q: "What industries do you work with?",
-      a: "This consulting program is industry-agnostic because it focuses on universal business engineering: pricing structures, customer acquisition mechanisms, cash flow velocity, and delegation systems. Samuel works with logistics, retail, services, and tech firms."
+      a: "Samuel works primarily with credentialed professionals and organizations — doctors, lawyers, pharmacists, engineers, and similar service businesses — because the focus is on offers, client acquisition, and pricing structures that fit how these professionals actually get and keep clients."
     },
     {
       q: "What are the payment options?",
-      a: "Consulting engagements require an initial setup fee followed by structured monthly installments. Custom structures can be discussed during your initial strategy call based on your business complexity."
+      a: "Consulting engagements vary based on the level of support, from a single strategy session to done-with-you and done-for-you models, including yearly contracts for organizations. Payment structures are discussed on your initial strategy call."
     }
   ];
 
@@ -176,14 +176,14 @@ export default function ConsultingPageClient() {
         <div className="relative z-20 max-w-7xl mx-auto px-6 lg:px-8 w-full">
           <div className="max-w-3xl flex flex-col justify-center text-left">
             <span className="text-[10px] font-bold tracking-[0.25em] text-[#C5A059] uppercase mb-6 block">
-              90-DAY BUSINESS CONSULTING
+              BUSINESS GROWTH CONSULTING
             </span>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white uppercase leading-none mb-8">
               Your business should be growing.<br />
               <span className="text-[#C5A059]">If it isn't, something needs to change.</span>
             </h1>
             <p className="text-base sm:text-lg lg:text-xl font-light text-white/80 leading-relaxed mb-10 max-w-2xl">
-              Samuel works directly with small business owners who are stuck — making sales but not scaling, working hard but not building.
+              Samuel works with credentialed professionals and organizations who are good at what they do but don't have a system bringing in clients consistently. He builds the offers and client acquisition systems that turn expertise into recurring revenue.
             </p>
             <div className="flex flex-wrap gap-4">
               <Link
@@ -205,13 +205,13 @@ export default function ConsultingPageClient() {
         <div className="max-w-7xl mx-auto">
           <div className="reveal-up mb-16 max-w-3xl">
             <span className="text-[10px] font-bold tracking-[0.25em] text-[#C5A059] uppercase block mb-4">
-              THE REALITY OF MOST BUILDERS
+              THE REALITY MOST PROFESSIONALS FACE
             </span>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight uppercase leading-tight mb-6">
-              Stuck in the Survival Loop
+              Good at the Work, Stuck on Growth
             </h2>
             <p className="text-base sm:text-lg font-light text-black/80 leading-relaxed">
-              Most business owners work 80-hour weeks only to watch their revenue hit a constant ceiling. They are generating cash flow and making sales, but they are not actually building a scalable asset.
+              Most professionals and organizations are excellent at what they do. But without a system bringing in clients, growth depends on referrals, luck, and how hard you're willing to hustle this month.
             </p>
           </div>
 
@@ -222,10 +222,10 @@ export default function ConsultingPageClient() {
                   PAIN POINT 01
                 </span>
                 <h3 className="text-lg font-bold uppercase tracking-tight mb-4">
-                  The Revenue Ceiling
+                  The Referral Ceiling
                 </h3>
                 <p className="text-xs sm:text-sm font-light text-black/70 leading-relaxed">
-                  You are generating cash flow, but you cannot break past your current revenue limits. Every growth push requires more hours, more stress, and more capital, only to end up right back where you started.
+                  You're getting clients, but only through word of mouth. There's no system pulling in new business on its own, so growth stalls the moment referrals slow down.
                 </p>
               </div>
             </div>
@@ -236,10 +236,10 @@ export default function ConsultingPageClient() {
                   PAIN POINT 02
                 </span>
                 <h3 className="text-lg font-bold uppercase tracking-tight mb-4">
-                  The Owner Trap
+                  The Time-for-Clients Trap
                 </h3>
                 <p className="text-xs sm:text-sm font-light text-black/70 leading-relaxed">
-                  The entire business runs on your manual, day-to-day effort. If you take a week off, operations grind to a halt. You haven't built a business — you've just built a high-stress job where you are the bottleneck.
+                  Every new client costs you hours you don't have — chasing leads, following up, closing manually. You haven't built a client acquisition system, you've built another job.
                 </p>
               </div>
             </div>
@@ -250,10 +250,10 @@ export default function ConsultingPageClient() {
                   PAIN POINT 03
                 </span>
                 <h3 className="text-lg font-bold uppercase tracking-tight mb-4">
-                  Generic Playbooks
+                  Generic Marketing Advice
                 </h3>
                 <p className="text-xs sm:text-sm font-light text-black/70 leading-relaxed">
-                  You've read the generic business advice, but it doesn't align with the dynamics of local markets or your actual numbers. Without frameworks designed for the African context, you are playing a guessing game.
+                  You've tried the generic marketing playbooks, but they weren't built for professionals whose credibility and trust matter more than a flashy ad. Without a system built for how people actually buy from you, you're guessing.
                 </p>
               </div>
             </div>
@@ -272,10 +272,10 @@ export default function ConsultingPageClient() {
               THE SOLUTION
             </span>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight uppercase leading-tight text-white mb-6">
-              The 90-Day Growth Engine
+              A System Built Around Your Business
             </h2>
             <p className="text-base sm:text-lg font-light text-white/80 leading-relaxed">
-              This is not theoretical business advisory. Samuel goes directly into your business, audits your operations, and co-builds a structured 90-day roadmap designed for your actual market and actual numbers.
+              This isn't generic advice. Samuel goes directly into your business, audits what's working and what isn't, and builds the offer and client acquisition system your business actually needs, matched to the level of support that makes sense for you.
             </p>
           </div>
 
@@ -289,7 +289,7 @@ export default function ConsultingPageClient() {
                   Full Business Audit
                 </h3>
                 <p className="text-xs sm:text-sm font-light text-white/60 leading-relaxed">
-                  A deep-dive analysis of your current business model, margin performance, customer acquisition costs, and structural leaks.
+                  A deep-dive into your current offer, pricing, client acquisition, and where you're losing potential business.
                 </p>
               </div>
             </div>
@@ -300,10 +300,10 @@ export default function ConsultingPageClient() {
                   PHASE 02
                 </span>
                 <h3 className="text-lg font-bold uppercase tracking-tight text-white mb-4">
-                  Custom Roadmap
+                  Custom Growth Roadmap
                 </h3>
                 <p className="text-xs sm:text-sm font-light text-white/60 leading-relaxed">
-                  We build a concrete 90-day operational playbook, specifying goals, pricing models, and system setups matching your resources.
+                  A clear, specific plan covering your offer structure, pricing, and the systems needed to bring in clients consistently.
                 </p>
               </div>
             </div>
@@ -314,10 +314,10 @@ export default function ConsultingPageClient() {
                   PHASE 03
                 </span>
                 <h3 className="text-lg font-bold uppercase tracking-tight text-white mb-4">
-                  Weekly Calls
+                  Strategy Sessions
                 </h3>
                 <p className="text-xs sm:text-sm font-light text-white/60 leading-relaxed">
-                  Structured strategy sessions and direct accountability checks with Samuel to implement milestones and optimize results.
+                  Regular strategy and accountability sessions with Samuel to implement the roadmap and adjust as you go.
                 </p>
               </div>
             </div>
@@ -328,10 +328,10 @@ export default function ConsultingPageClient() {
                   PHASE 04
                 </span>
                 <h3 className="text-lg font-bold uppercase tracking-tight text-white mb-4">
-                  Market Integration
+                  Full Implementation Support
                 </h3>
                 <p className="text-xs sm:text-sm font-light text-white/60 leading-relaxed">
-                  Integration of proven pricing structures, supply strategies, and expansion models engineered specifically for African markets.
+                  For clients who want it done with them or done for them, Samuel and his team can build and run the system directly (including ongoing yearly partnerships for organizations.)
                 </p>
               </div>
             </div>
@@ -363,12 +363,12 @@ export default function ConsultingPageClient() {
               <div className="flex flex-col gap-4">
                 <span className="text-4xl font-serif text-[#C5A059] leading-none select-none">“</span>
                 <p className="text-sm sm:text-base font-light text-black/90 italic leading-relaxed">
-                  Samuel's Theory of Business Needs and his level of understanding of business systems has brought great clarity to me and my business operations.
+                  I was introduced to Dr. Samuel Adanuvo through Launch Code 1.0, and it was insightful and beginner-friendly. After just 3 sessions, I finally had the push to start my business. Since then, consulting with him has been a huge blessing — from marketing to finding my ideal customer to answering every question along the way. Starting a business is intimidating, and I'm grateful to have someone this well-versed guiding me even at this early stage.
                 </p>
               </div>
               <div className="mt-8 pt-4 border-t border-black/10 flex items-center justify-between text-[10px] font-black text-[#C5A059] tracking-wider uppercase">
-                <span>BENJAMIN S.</span>
-                <span className="text-black/40 font-normal">VERIFIED BUILDER</span>
+                <span>FERNAND K.</span>
+                <span className="text-black/40 font-normal">VERIFIED CLIENT</span>
               </div>
             </div>
 
@@ -376,12 +376,12 @@ export default function ConsultingPageClient() {
               <div className="flex flex-col gap-4">
                 <span className="text-4xl font-serif text-[#C5A059] leading-none select-none">“</span>
                 <p className="text-sm sm:text-base font-light text-black/90 italic leading-relaxed">
-                  Samuel taught me the exact way to start a business without even needing capital. Amazing stuff!
+                  Such an eye-opener. Dr. Samuel refined my offer and showed me exactly how to attract VIP clientele — it's million-dollar knowledge, and I'm grateful for the opportunity to learn directly from him. God bless the work he's doing.
                 </p>
               </div>
               <div className="mt-8 pt-4 border-t border-black/10 flex items-center justify-between text-[10px] font-black text-[#C5A059] tracking-wider uppercase">
-                <span>DIANA M.</span>
-                <span className="text-black/40 font-normal">VERIFIED BUILDER</span>
+                <span>DR. J.A.</span>
+                <span className="text-black/40 font-normal">VERIFIED CLIENT</span>
               </div>
             </div>
 
@@ -394,7 +394,7 @@ export default function ConsultingPageClient() {
               </div>
               <div className="mt-8 pt-4 border-t border-black/10 flex items-center justify-between text-[10px] font-black text-[#C5A059] tracking-wider uppercase">
                 <span>KWAME G.</span>
-                <span className="text-black/40 font-normal">VERIFIED BUILDER</span>
+                <span className="text-black/40 font-normal">VERIFIED CLIENT</span>
               </div>
             </div>
           </div>

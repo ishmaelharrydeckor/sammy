@@ -216,6 +216,12 @@ export default function Home() {
               {content.hero.headline}
             </h1>
             
+            {content.hero.subtext && (
+              <p className="hero-creds text-sm sm:text-base md:text-lg font-light text-white/80 leading-relaxed mb-8 max-w-2xl">
+                {content.hero.subtext}
+              </p>
+            )}
+            
             {/* CTA Button */}
             <div className="hero-cta mb-12">
               <Link
@@ -790,6 +796,62 @@ export default function Home() {
           </div>
         </div>
       </section>
+      {/* 5.5 Featured Video Insights Section */}
+      {content.videoInsights && (
+        <section
+          id="video-insights"
+          className="relative border-t border-black/10 bg-[#E2E2E2] py-18 md:py-24 px-6 lg:px-8 z-10 text-black"
+        >
+          <div className="max-w-7xl mx-auto">
+            <div className="reveal-up text-center mb-16 max-w-2xl mx-auto">
+              <div className="flex items-center justify-center gap-2 mb-4">
+                <span className="h-1.5 w-1.5 rounded-full bg-[#C5A059]"></span>
+                <span className="text-[10px] font-bold tracking-[0.25em] text-[#C5A059] uppercase">
+                  VIDEO INSIGHTS
+                </span>
+              </div>
+              <h2 className="text-3xl sm:text-4xl font-black text-black uppercase tracking-tight mb-4">
+                {content.videoInsights.title}
+              </h2>
+              <p className="text-sm sm:text-base font-light text-black/85 leading-relaxed">
+                {content.videoInsights.description}
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch reveal-group">
+              {content.videoInsights.items.map((video, idx) => (
+                <div
+                  key={idx}
+                  className="reveal-child flex flex-col justify-between p-8 bg-[#DFDFDF] border border-black/5 hover:border-[#C5A059]/20 transition-all duration-300 group"
+                >
+                  <div>
+                    <span className="text-[8px] font-mono tracking-widest text-[#C5A059] uppercase bg-[#C5A059]/10 border border-[#C5A059]/20 px-2 py-0.5 self-start mb-6 inline-block font-bold">
+                      {video.tag}
+                    </span>
+                    <h3 className="text-lg font-bold uppercase tracking-tight text-black mb-4 group-hover:text-[#C5A059] transition-colors duration-200">
+                      {video.title}
+                    </h3>
+                    <p className="text-xs sm:text-sm font-light text-black/75 leading-relaxed">
+                      {video.desc}
+                    </p>
+                  </div>
+                  <div className="mt-8 pt-4 border-t border-black/10 flex items-center justify-between">
+                    <a
+                      href={video.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 text-[10px] font-black text-[#C5A059] tracking-wider uppercase hover:text-black transition-colors duration-200"
+                    >
+                      Watch on YouTube <span>→</span>
+                    </a>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* 6. Testimonials Section (Relocated on Light Background) */}
       <section
         id="testimonials"
