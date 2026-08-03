@@ -208,7 +208,7 @@ export default function Home() {
 
         {/* Content Wrapper aligned with max-w-7xl */}
         <div className="relative z-20 max-w-7xl mx-auto px-6 lg:px-8 w-full">
-          <div className="max-w-3xl flex flex-col justify-center text-left">
+          <div className="max-w-3xl mx-auto flex flex-col items-center justify-center text-center">
             <span className="hero-subtitle text-[11px] font-light tracking-[0.25em] text-[#C5A059] uppercase mb-6 block">
               {content.hero.subtitle}
             </span>
@@ -234,9 +234,9 @@ export default function Home() {
             </div>
 
             {/* Credentials Row */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-8 border-t border-white/10 max-w-2xl">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-8 border-t border-white/10 w-full max-w-2xl">
               {content.hero.credentials.map((cred, idx) => (
-                <div key={idx} className="hero-creds flex flex-col">
+                <div key={idx} className="hero-creds flex flex-col items-center text-center">
                   <span className="text-[10px] text-white/50 tracking-widest uppercase font-light">
                     {cred.label}
                   </span>
@@ -247,7 +247,7 @@ export default function Home() {
               ))}
             </div>
 
-            <div className="hero-creds mt-4 text-[10px] tracking-[0.15em] uppercase text-[#C5A059]/70 font-light">
+            <div className="hero-creds mt-6 text-[10px] tracking-[0.15em] uppercase text-[#C5A059]/70 font-light">
               📍 {content.hero.locations}
             </div>
           </div>
