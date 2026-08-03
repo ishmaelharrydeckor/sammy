@@ -233,21 +233,24 @@ export default function Home() {
               </Link>
             </div>
 
-            {/* Credentials Row */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-8 border-t border-white/10 w-full max-w-2xl">
+            {/* Credentials Grid */}
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-8 w-full max-w-4xl">
               {content.hero.credentials.map((cred, idx) => (
-                <div key={idx} className="hero-creds flex flex-col items-center text-center">
-                  <span className="text-[10px] text-white/50 tracking-widest uppercase font-light">
+                <div 
+                  key={idx} 
+                  className="hero-creds flex flex-col items-center justify-center p-6 bg-white/[0.02] border border-white/5 hover:border-[#C5A059]/20 transition-all duration-300 backdrop-blur-sm"
+                >
+                  <span className="text-[9px] font-mono tracking-widest text-[#C5A059] uppercase font-bold">
                     {cred.label}
                   </span>
-                  <span className="text-sm font-black text-white uppercase mt-1">
+                  <span className="text-xs font-bold text-white uppercase mt-2 tracking-wide leading-relaxed">
                     {cred.value}
                   </span>
                 </div>
               ))}
             </div>
 
-            <div className="hero-creds mt-6 text-[10px] tracking-[0.15em] uppercase text-[#C5A059]/70 font-light">
+            <div className="hero-creds mt-8 text-[10px] tracking-[0.15em] uppercase text-[#C5A059]/70 font-light">
               📍 {content.hero.locations}
             </div>
           </div>
@@ -823,18 +826,18 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Entry 2: Online Masterclass Series (Past Online Series Recap) */}
+            {/* Entry 2: Making Impact Summit (Past Campus Event Recap) */}
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center pt-16 border-t border-white/5">
               {/* Left Column: Featured Visual Poster (Spans 5) */}
               <div className="lg:col-span-5 flex justify-center reveal-up">
                 <div className="relative w-full aspect-[4/5] max-w-[340px] bg-[#0F0F0F] border border-white/5 p-6 flex flex-col gap-6 relative overflow-hidden group">
                   <span className="text-[8px] font-mono tracking-widest text-[#C5A059] uppercase bg-[#C5A059]/10 border border-[#C5A059]/20 px-2.5 py-1 self-start font-bold">
-                    PAST SERIES RECAP
+                    PAST SUMMIT RECAP
                   </span>
                   <div className="relative w-full aspect-[4/5] overflow-hidden bg-black border border-white/5">
                     <Image
                       src="/images/online-event/an-online-event.jpg"
-                      alt="Samuel Adanuvo Online Business Training Event Poster"
+                      alt="Making Impact Through Entrepreneurship Summit Poster"
                       fill
                       className="object-cover object-center group-hover:scale-102 transition-transform duration-500 ease-out"
                       sizes="(max-width: 768px) 100vw, 300px"
@@ -846,26 +849,26 @@ export default function Home() {
               {/* Right Column: Text Details (Spans 7) */}
               <div className="lg:col-span-7 flex flex-col justify-center reveal-up">
                 <span className="text-[8px] font-mono tracking-widest text-[#C5A059] uppercase bg-[#C5A059]/10 border border-[#C5A059]/20 px-2.5 py-1 self-start mb-6 font-bold">
-                  ONLINE SERIES
+                  CAMPUS SUMMIT
                 </span>
                 <h3 className="text-3xl font-black tracking-tight text-white uppercase leading-tight mb-6">
-                  Online Masterclass Series
+                  Making Impact Through Entrepreneurship
                 </h3>
                 <p className="text-sm sm:text-base font-light text-white/80 leading-relaxed mb-8 max-w-xl">
-                  Digital broadcasts and training series focusing on strategic systems, wealth-building mechanisms, and the business mindset. Designed to provide accessible enterprise education directly to builders across the continent.
+                  A strategic training session hosted in partnership with POSSA-KNUST. Focused on equipping young builders to make real-world impact, build sustainable ventures, and navigate entrepreneurial structures in the current economy.
                 </p>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-8 border-t border-white/5 max-w-lg">
                   <div>
-                    <span className="text-[10px] font-bold text-[#C5A059] tracking-wider block mb-1">PLATFORM</span>
+                    <span className="text-[10px] font-bold text-[#C5A059] tracking-wider block mb-1">VENUE</span>
                     <p className="text-xs text-white/60 font-light leading-relaxed">
-                      Broadcast online via live video streaming platforms. Recordings archived for waitlist members.
+                      CCB Auditorium, KNUST, Kumasi, Ghana.
                     </p>
                   </div>
                   <div>
-                    <span className="text-[10px] font-bold text-[#C5A059] tracking-wider block mb-1">SCHEDULE</span>
+                    <span className="text-[10px] font-bold text-[#C5A059] tracking-wider block mb-1">DATE & TIME</span>
                     <p className="text-xs text-white/60 font-light leading-relaxed">
-                      Periodic cohorts announced dynamically. Register interest in the contact section to request archives.
+                      18th March 2023 | 10:00 AM.
                     </p>
                   </div>
                 </div>
