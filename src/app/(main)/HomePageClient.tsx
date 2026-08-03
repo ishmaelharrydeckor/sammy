@@ -584,9 +584,6 @@ export default function Home() {
 
             {/* Book Text & Form Column (Spans 7) */}
             <div className="lg:col-span-7 flex flex-col justify-center">
-              <span className="reveal-up text-[10px] font-light tracking-[0.3em] text-[#C5A059] uppercase block mb-4">
-                // {content.book.author}
-              </span>
               <h2 className="reveal-up text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-black leading-tight uppercase mb-8">
                 {content.book.title}
               </h2>
@@ -686,9 +683,6 @@ export default function Home() {
 
               {/* Right Column: Text Details (Spans 7) */}
               <div className="lg:col-span-7 flex flex-col justify-center reveal-up">
-                <span className="text-[8px] font-mono tracking-widest text-[#C5A059] uppercase bg-[#C5A059]/10 border border-[#C5A059]/20 px-2.5 py-1 self-start mb-6 font-bold">
-                  YOUTUBE STREAMING LIVE
-                </span>
                 <h3 className="text-3xl font-black tracking-tight text-white uppercase leading-tight mb-4">
                   The Success Wavelength
                 </h3>
@@ -743,9 +737,6 @@ export default function Home() {
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
               {/* Left Column: Text Details (Spans 5) */}
               <div className="lg:col-span-5 flex flex-col justify-center reveal-up">
-                <span className="text-[8px] font-mono tracking-widest text-black uppercase bg-[#C5A059] px-2.5 py-1 self-start mb-6 font-bold">
-                  RECAP
-                </span>
                 <h3 className="text-3xl font-black tracking-tight text-white uppercase leading-tight mb-4">
                   {content.events.headline}
                 </h3>
@@ -831,9 +822,6 @@ export default function Home() {
               {/* Left Column: Featured Visual Poster (Spans 5) */}
               <div className="lg:col-span-5 flex justify-center reveal-up">
                 <div className="relative w-full aspect-[4/5] max-w-[340px] bg-[#0F0F0F] border border-white/5 p-6 flex flex-col gap-6 relative overflow-hidden group">
-                  <span className="text-[8px] font-mono tracking-widest text-[#C5A059] uppercase bg-[#C5A059]/10 border border-[#C5A059]/20 px-2.5 py-1 self-start font-bold">
-                    PAST SUMMIT RECAP
-                  </span>
                   <div className="relative w-full aspect-[4/5] overflow-hidden bg-black border border-white/5">
                     <Image
                       src="/images/online-event/an-online-event.jpg"
@@ -848,9 +836,6 @@ export default function Home() {
 
               {/* Right Column: Text Details (Spans 7) */}
               <div className="lg:col-span-7 flex flex-col justify-center reveal-up">
-                <span className="text-[8px] font-mono tracking-widest text-[#C5A059] uppercase bg-[#C5A059]/10 border border-[#C5A059]/20 px-2.5 py-1 self-start mb-6 font-bold">
-                  CAMPUS SUMMIT
-                </span>
                 <h3 className="text-3xl font-black tracking-tight text-white uppercase leading-tight mb-6">
                   Making Impact Through Entrepreneurship
                 </h3>
