@@ -240,10 +240,10 @@ export default function Home() {
                   key={idx} 
                   className="hero-creds flex flex-col items-center justify-center p-6 bg-white/[0.02] border border-white/5 hover:border-[#C5A059]/20 transition-all duration-300 backdrop-blur-sm"
                 >
-                  <span className="text-[9px] font-mono tracking-widest text-[#C5A059] uppercase font-bold">
+                  <span className="text-[11px] font-mono tracking-[0.2em] text-[#C5A059] uppercase font-bold">
                     {cred.label}
                   </span>
-                  <span className="text-xs font-bold text-white uppercase mt-2 tracking-wide leading-relaxed">
+                  <span className="text-sm sm:text-base font-bold text-white uppercase mt-2.5 tracking-wide leading-normal text-center">
                     {cred.value}
                   </span>
                 </div>
