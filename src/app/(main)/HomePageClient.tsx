@@ -6,7 +6,7 @@ import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { ArrowRight, Compass } from "lucide-react";
+import { ArrowRight, Compass, Play } from "lucide-react";
 import ThreeScene from "@/components/ThreeScene";
 import content from "@/data/site-content.json";
 
@@ -651,18 +651,96 @@ export default function Home() {
       >
         <div className="max-w-7xl mx-auto">
           {/* Section Header */}
-          <div className="reveal-up text-center mb-24">
+          <div className="reveal-up text-center mb-20">
+            <span className="text-[10px] font-bold tracking-[0.25em] text-[#C5A059] uppercase block mb-4">
+              BROADCASTS & INITIATIVES
+            </span>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white leading-tight uppercase">
-              {content.events.title}
+              Events & Education
             </h2>
           </div>
 
-          <div className="space-y-32">
+          <div className="space-y-24">
+            {/* UPCOMING EVENT: The Success Wavelength */}
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+              {/* Left Column: Featured Visual Poster (Spans 5) */}
+              <div className="lg:col-span-5 flex justify-center reveal-up">
+                <div className="relative w-full aspect-square max-w-[400px] bg-[#0F0F0F] border border-white/5 p-4 flex flex-col gap-6 relative overflow-hidden group">
+                  <span className="text-[8px] font-mono tracking-widest text-black uppercase bg-[#C5A059] px-2.5 py-1 self-start font-bold z-20">
+                    UPCOMING BROADCAST
+                  </span>
+                  <div className="relative w-full aspect-square overflow-hidden bg-black border border-white/5">
+                    <Image
+                      src="/images/events/success-wavelength.jpg"
+                      alt="The Success Wavelength - YouTube Live Broadcast Event Poster"
+                      fill
+                      className="object-cover object-center group-hover:scale-102 transition-transform duration-500 ease-out"
+                      sizes="(max-width: 768px) 100vw, 400px"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              {/* Right Column: Text Details (Spans 7) */}
+              <div className="lg:col-span-7 flex flex-col justify-center reveal-up">
+                <span className="text-[8px] font-mono tracking-widest text-[#C5A059] uppercase bg-[#C5A059]/10 border border-[#C5A059]/20 px-2.5 py-1 self-start mb-6 font-bold">
+                  YOUTUBE STREAMING LIVE
+                </span>
+                <h3 className="text-3xl font-black tracking-tight text-white uppercase leading-tight mb-4">
+                  The Success Wavelength
+                </h3>
+                <div className="text-xs font-mono tracking-widest text-[#C5A059] uppercase mb-6">
+                  📅 SUNDAY, AUGUST 9TH, 2026 | 7:00 PM
+                </div>
+                <p className="text-sm sm:text-base font-light text-white/85 leading-relaxed mb-8 max-w-xl">
+                  How to unlock the hidden frequency that makes success inevitable. Access is free but restricted to only those with the link. Register below to receive your private stream link.
+                </p>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-8 border-t border-white/5 max-w-lg mb-8">
+                  <div>
+                    <span className="text-[10px] font-bold text-[#C5A059] tracking-wider block mb-1">PLATFORM</span>
+                    <p className="text-xs text-white/60 font-light leading-relaxed">
+                      YouTube Live Streaming on @sammyadanuvo. Stream link sent via email.
+                    </p>
+                  </div>
+                  <div>
+                    <span className="text-[10px] font-bold text-[#C5A059] tracking-wider block mb-1">ACCESS</span>
+                    <p className="text-xs text-white/60 font-light leading-relaxed">
+                      Free restricted access. Fill out the contact form below with the subject "Other" or "Consulting" to register interest.
+                    </p>
+                  </div>
+                </div>
+
+                <div>
+                  <Link
+                    href="#contact"
+                    className="inline-flex items-center gap-3 rounded-none border border-[#C5A059] bg-[#C5A059] px-8 py-4 text-xs font-bold tracking-[0.2em] text-black hover:bg-[#a3803f] hover:border-[#a3803f] transition-all duration-300 uppercase"
+                  >
+                    REGISTER TO GET THE LINK
+                    <ArrowRight className="h-4 w-4" />
+                  </Link>
+                </div>
+              </div>
+            </div>
+
+            {/* Divider Line */}
+            <div className="border-t border-white/10 my-20"></div>
+
+            {/* PAST EVENTS SECTION SUB-HEADER */}
+            <div className="reveal-up text-left mb-12">
+              <span className="text-[10px] font-bold tracking-[0.25em] text-[#C5A059] uppercase block mb-4">
+                PAST SUMMITS & EDUCATIONAL RECAPS
+              </span>
+              <h3 className="text-2xl sm:text-3xl font-black text-white uppercase tracking-tight">
+                Past Event Highlights
+              </h3>
+            </div>
+
             {/* Entry 1: Minds, Markets & Movements 1.0 (Past Live Summit) */}
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
               {/* Left Column: Text Details (Spans 5) */}
               <div className="lg:col-span-5 flex flex-col justify-center reveal-up">
-                <span className="text-[8px] font-mono tracking-widest text-black uppercase bg-[#C5A059] px-2.5 py-1 self-start mb-6">
+                <span className="text-[8px] font-mono tracking-widest text-black uppercase bg-[#C5A059] px-2.5 py-1 self-start mb-6 font-bold">
                   RECAP
                 </span>
                 <h3 className="text-3xl font-black tracking-tight text-white uppercase leading-tight mb-4">
@@ -745,13 +823,13 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Entry 2: Online Masterclass Series (Online Event) */}
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center pt-24 border-t border-white/5">
+            {/* Entry 2: Online Masterclass Series (Past Online Series Recap) */}
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center pt-16 border-t border-white/5">
               {/* Left Column: Featured Visual Poster (Spans 5) */}
               <div className="lg:col-span-5 flex justify-center reveal-up">
                 <div className="relative w-full aspect-[4/5] max-w-[340px] bg-[#0F0F0F] border border-white/5 p-6 flex flex-col gap-6 relative overflow-hidden group">
-                  <span className="text-[8px] font-mono tracking-widest text-[#C5A059] uppercase bg-[#C5A059]/10 border border-[#C5A059]/20 px-2.5 py-1 self-start">
-                    ONLINE EVENT
+                  <span className="text-[8px] font-mono tracking-widest text-[#C5A059] uppercase bg-[#C5A059]/10 border border-[#C5A059]/20 px-2.5 py-1 self-start font-bold">
+                    PAST SERIES RECAP
                   </span>
                   <div className="relative w-full aspect-[4/5] overflow-hidden bg-black border border-white/5">
                     <Image
@@ -767,7 +845,7 @@ export default function Home() {
 
               {/* Right Column: Text Details (Spans 7) */}
               <div className="lg:col-span-7 flex flex-col justify-center reveal-up">
-                <span className="text-[8px] font-mono tracking-widest text-[#C5A059] uppercase bg-[#C5A059]/10 border border-[#C5A059]/20 px-2.5 py-1 self-start mb-6">
+                <span className="text-[8px] font-mono tracking-widest text-[#C5A059] uppercase bg-[#C5A059]/10 border border-[#C5A059]/20 px-2.5 py-1 self-start mb-6 font-bold">
                   ONLINE SERIES
                 </span>
                 <h3 className="text-3xl font-black tracking-tight text-white uppercase leading-tight mb-6">
@@ -787,7 +865,7 @@ export default function Home() {
                   <div>
                     <span className="text-[10px] font-bold text-[#C5A059] tracking-wider block mb-1">SCHEDULE</span>
                     <p className="text-xs text-white/60 font-light leading-relaxed">
-                      Periodic cohorts announced dynamically. Register interest in the contact section.
+                      Periodic cohorts announced dynamically. Register interest in the contact section to request archives.
                     </p>
                   </div>
                 </div>
@@ -819,34 +897,66 @@ export default function Home() {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch reveal-group">
-              {content.videoInsights.items.map((video, idx) => (
-                <div
-                  key={idx}
-                  className="reveal-child flex flex-col justify-between p-8 bg-[#DFDFDF] border border-black/5 hover:border-[#C5A059]/20 transition-all duration-300 group"
-                >
-                  <div>
-                    <span className="text-[8px] font-mono tracking-widest text-[#C5A059] uppercase bg-[#C5A059]/10 border border-[#C5A059]/20 px-2 py-0.5 self-start mb-6 inline-block font-bold">
-                      {video.tag}
-                    </span>
-                    <h3 className="text-lg font-bold uppercase tracking-tight text-black mb-4 group-hover:text-[#C5A059] transition-colors duration-200">
-                      {video.title}
-                    </h3>
-                    <p className="text-xs sm:text-sm font-light text-black/75 leading-relaxed">
-                      {video.desc}
-                    </p>
+              {content.videoInsights.items.map((video, idx) => {
+                // Helper to extract YouTube ID
+                const getYoutubeId = (url: string) => {
+                  const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
+                  const match = url.match(regExp);
+                  return (match && match[2].length === 11) ? match[2] : null;
+                };
+                const videoId = getYoutubeId(video.url);
+                const thumbnailUrl = videoId 
+                  ? `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`
+                  : "";
+
+                return (
+                  <div
+                    key={idx}
+                    className="reveal-child flex flex-col justify-between p-6 bg-[#DFDFDF] border border-black/5 hover:border-[#C5A059]/20 transition-all duration-300 group"
+                  >
+                    <div>
+                      {/* Video Thumbnail Visual */}
+                      {thumbnailUrl && (
+                        <div className="relative w-full aspect-video mb-6 border border-black/5 bg-[#DFDFDF] overflow-hidden">
+                          <Image
+                            src={thumbnailUrl}
+                            alt={`${video.title} Video Lesson Widescreen Thumbnail`}
+                            fill
+                            className="object-cover object-center group-hover:scale-102 transition-transform duration-500 ease-out"
+                            sizes="(max-width: 768px) 100vw, 350px"
+                          />
+                          {/* Play overlay */}
+                          <div className="absolute inset-0 flex items-center justify-center bg-black/15 group-hover:bg-black/25 transition-colors duration-300">
+                            <div className="h-10 w-14 rounded-lg bg-[#FF0000] flex items-center justify-center text-white shadow-md group-hover:scale-110 transition-transform duration-300">
+                              <Play className="h-5 w-5 fill-current ml-0.5" />
+                            </div>
+                          </div>
+                        </div>
+                      )}
+
+                      <span className="text-[8px] font-mono tracking-widest text-[#C5A059] uppercase bg-[#C5A059]/10 border border-[#C5A059]/20 px-2 py-0.5 self-start mb-4 inline-block font-bold">
+                        {video.tag}
+                      </span>
+                      <h3 className="text-base font-bold uppercase tracking-tight text-black mb-3 group-hover:text-[#C5A059] transition-colors duration-200">
+                        {video.title}
+                      </h3>
+                      <p className="text-xs sm:text-sm font-light text-black/75 leading-relaxed">
+                        {video.desc}
+                      </p>
+                    </div>
+                    <div className="mt-6 pt-4 border-t border-black/10 flex items-center justify-between">
+                      <a
+                        href={video.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 text-[10px] font-black text-[#C5A059] tracking-wider uppercase hover:text-black transition-colors duration-200"
+                      >
+                        Watch on YouTube <span>→</span>
+                      </a>
+                    </div>
                   </div>
-                  <div className="mt-8 pt-4 border-t border-black/10 flex items-center justify-between">
-                    <a
-                      href={video.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 text-[10px] font-black text-[#C5A059] tracking-wider uppercase hover:text-black transition-colors duration-200"
-                    >
-                      Watch on YouTube <span>→</span>
-                    </a>
-                  </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
           </div>
         </section>
