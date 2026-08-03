@@ -315,11 +315,7 @@ export default function Home() {
                   className="object-cover object-top transition-transform duration-700 ease-out group-hover:scale-102"
                   sizes="(max-width: 768px) 100vw, 400px"
                 />
-                <div className="absolute top-4 right-4 bg-black/60 backdrop-blur px-3 py-1.5 border border-white/10">
-                  <span className="text-[9px] font-mono tracking-widest text-[#C5A059] uppercase block font-semibold">
-                    PHARMACIST · CEO
-                  </span>
-                </div>
+
               </div>
               
               <div className="reveal-up w-full max-w-[400px] mt-6 bg-[#0F0F0F] border border-white/5 p-6 flex flex-col gap-4">
@@ -349,12 +345,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto">
           {/* Header block with inverted text */}
           <div className="reveal-up text-center mb-16 max-w-2xl mx-auto">
-            <div className="flex items-center justify-center gap-2 mb-4">
-              <span className="h-1.5 w-1.5 rounded-full bg-[#C5A059]"></span>
-              <span className="text-[10px] font-bold tracking-[0.25em] text-[#C5A059] uppercase">
-                Credential Proof
-              </span>
-            </div>
+
             <h2 className="text-3xl sm:text-4xl font-black text-black uppercase tracking-tight mb-4">
               Sigmart YAE KNUST Expo 2024
             </h2>
@@ -958,9 +949,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto">
           {/* Section Header */}
           <div className="reveal-up text-center mb-24">
-            <span className="text-[10px] font-light tracking-[0.3em] text-[#C5A059] uppercase block mb-4">
-              // CLIENT SUCCESS
-            </span>
+
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-black leading-tight uppercase mb-4">
               {content.testimonials.title}
             </h2>
