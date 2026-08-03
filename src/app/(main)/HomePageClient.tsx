@@ -177,7 +177,7 @@ export default function Home() {
       {/* 1. Hero Section */}
       <section
         id="hero"
-        className="relative min-h-[85vh] w-full flex flex-col justify-center items-center pt-28 pb-18 md:pt-36 md:pb-24 z-10 bg-black overflow-hidden"
+        className="relative min-h-[85vh] w-full flex flex-col justify-start items-center pt-32 pb-16 md:pt-36 md:pb-20 z-10 bg-black overflow-hidden"
       >
         {/* Background Video / Static image overlay container */}
         <div className="absolute inset-0 z-0">
