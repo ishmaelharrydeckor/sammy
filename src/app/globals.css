@@ -114,3 +114,12 @@ html.lenis-stopped {
 .lenis.lenis-scrolling iframe {
   pointer-events: none;
 }
+
+/* Hide scrollbar utility */
+.scrollbar-none {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}

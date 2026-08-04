@@ -177,10 +177,10 @@ export default function Home() {
       {/* 1. Hero Section */}
       <section
         id="hero"
-        className="relative min-h-[85vh] w-full flex flex-col justify-start items-center pt-32 pb-16 md:pt-36 md:pb-20 z-10 bg-black overflow-hidden"
+        className="relative min-h-screen w-full flex flex-col justify-start md:justify-center items-center pt-20 pb-16 md:pt-24 md:pb-20 z-10 bg-black"
       >
         {/* Background Video / Static image overlay container */}
-        <div className="absolute inset-0 z-0">
+        <div className="absolute inset-0 z-0 overflow-hidden">
           {!prefersReducedMotion ? (
             <video
               autoPlay
@@ -200,7 +200,7 @@ export default function Home() {
               priority
               className="object-cover object-center"
               sizes="100vw"
-            />
+          />
           )}
           {/* Dark gradient overlay for text legibility */}
           <div className="absolute inset-0 bg-gradient-to-b from-black/85 via-black/70 to-black/90 z-10"></div>
@@ -209,21 +209,21 @@ export default function Home() {
         {/* Content Wrapper aligned with max-w-7xl */}
         <div className="relative z-20 max-w-7xl mx-auto px-6 lg:px-8 w-full">
           <div className="max-w-5xl mx-auto flex flex-col items-center justify-center text-center">
-            <span className="hero-subtitle text-[11px] font-light tracking-[0.25em] text-[#C5A059] uppercase mb-6 block">
+            <span className="hero-subtitle text-[11px] font-light tracking-[0.25em] text-[#C5A059] uppercase mb-3 md:mb-4 block">
               {content.hero.subtitle}
             </span>
-            <h1 className="hero-title text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white leading-snug mb-10 max-w-4xl">
+            <h1 className="hero-title text-2xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white leading-snug mb-3 md:mb-4 max-w-4xl uppercase">
               Professionals build careers on being good at their work. Samuel builds <span className="text-[#C5A059] font-extrabold">the systems</span> that turn that skill into recurring clients and <span className="text-[#C5A059] font-extrabold">predictable revenue</span>.
             </h1>
             
             {content.hero.subtext && (
-              <p className="hero-creds text-sm sm:text-base md:text-lg font-light text-white/80 leading-relaxed mb-12 max-w-4xl">
+              <p className="hero-creds text-sm sm:text-base md:text-lg font-light text-white/80 leading-relaxed mb-6 md:mb-8 max-w-4xl">
                 {content.hero.subtext}
               </p>
             )}
             
             {/* CTA Button */}
-            <div className="hero-cta mb-16">
+            <div className="hero-cta mb-8 md:mb-12">
               <Link
                 href="#contact"
                 className="inline-flex items-center gap-3 rounded-none border border-[#C5A059] bg-[#C5A059] px-9 py-5 text-xs font-bold tracking-[0.2em] text-black hover:bg-[#a3803f] hover:border-[#a3803f] transition-all duration-300 hover-scale uppercase"
@@ -233,24 +233,21 @@ export default function Home() {
               </Link>
             </div>
 
-            {/* Credentials Grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-8 w-full max-w-5xl border-t border-white/10">
+            {/* Credentials Row */}
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-12 md:gap-16 pt-8 w-full max-w-5xl border-t border-white/10">
               {content.hero.credentials.map((cred, idx) => (
-                <div 
-                  key={idx} 
-                  className="hero-creds flex flex-col items-center justify-center p-6 bg-white/[0.02] border border-white/5 hover:border-[#C5A059]/20 transition-all duration-300 backdrop-blur-sm"
-                >
-                  <span className="text-[11px] font-mono tracking-[0.2em] text-[#C5A059] uppercase font-bold">
+                <div key={idx} className="flex flex-col items-center text-center max-w-xs">
+                  <span className="text-[10px] font-mono tracking-[0.2em] text-[#C5A059] uppercase font-bold mb-2">
                     {cred.label}
                   </span>
-                  <span className="text-sm sm:text-base font-bold text-white uppercase mt-2.5 tracking-wide leading-normal text-center">
+                  <span className="text-xs sm:text-sm font-bold text-white uppercase tracking-wider leading-relaxed">
                     {cred.value}
                   </span>
                 </div>
               ))}
             </div>
 
-            <div className="hero-creds mt-10 text-[10px] tracking-[0.15em] uppercase text-[#C5A059]/70 font-light">
+            <div className="hero-creds mt-5 md:mt-6 text-[10px] tracking-[0.15em] uppercase text-[#C5A059]/70 font-light">
               📍 {content.hero.locations}
             </div>
           </div>
