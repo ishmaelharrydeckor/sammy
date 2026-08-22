@@ -23,7 +23,11 @@ export default config({
           headline: fields.text({ label: 'Headline', multiline: true }),
           subtext: fields.text({ label: 'Subtext', multiline: true }),
           ctaText: fields.text({ label: 'CTA Button Text' }),
-          image: fields.text({ label: 'Hero Image Path' }),
+          image: fields.image({
+            label: 'Hero Image',
+            directory: 'public/images',
+            publicPath: '/images',
+          }),
           credentials: fields.array(
             fields.object({
               label: fields.text({ label: 'Label' }),
@@ -51,7 +55,11 @@ export default config({
           sidebarHeading: fields.text({ label: 'Sidebar Heading' }),
           sidebarSub: fields.text({ label: 'Sidebar Sub-heading' }),
           heading: fields.text({ label: 'Heading', multiline: true }),
-          portraitImage: fields.text({ label: 'Portrait Image Path' }),
+          portraitImage: fields.image({
+            label: 'Portrait Image',
+            directory: 'public/images',
+            publicPath: '/images',
+          }),
           paragraphs: fields.array(fields.text({ label: 'Paragraph Text', multiline: true }), {
             label: 'About Paragraphs',
             itemLabel: (item) => item.value ? (item.value.substring(0, 50) + '...') : 'Paragraph',
@@ -89,7 +97,11 @@ export default config({
         book: fields.object({
           title: fields.text({ label: 'Title' }),
           author: fields.text({ label: 'Author' }),
-          coverImage: fields.text({ label: 'Book Cover Image Path' }),
+          coverImage: fields.image({
+            label: 'Book Cover Image',
+            directory: 'public/images',
+            publicPath: '/images',
+          }),
           description: fields.text({ label: 'Description', multiline: true }),
           quote: fields.text({ label: 'Featured Quote', multiline: true }),
           quoteSource: fields.text({ label: 'Quote Source' }),
