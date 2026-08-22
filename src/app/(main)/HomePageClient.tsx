@@ -190,7 +190,7 @@ export default function Home() {
               poster={content.hero.image}
               className="w-full h-full object-cover"
             >
-              <source src="/videos/hero-speaking.mp4" type="video/mp4" />
+              <source src={content.hero.video || "/videos/hero-speaking.mp4"} type="video/mp4" />
             </video>
           ) : (
             <Image

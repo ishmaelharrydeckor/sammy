@@ -28,6 +28,11 @@ export default config({
             directory: 'public/images',
             publicPath: '/images',
           }),
+          video: fields.file({
+            label: 'Hero Background Video (MP4)',
+            directory: 'public/videos',
+            publicPath: '/videos',
+          }),
           credentials: fields.array(
             fields.object({
               label: fields.text({ label: 'Label' }),
