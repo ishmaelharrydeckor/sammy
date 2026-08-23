@@ -1,6 +1,8 @@
 # Personal Portfolio Website — Ishmael Harry-Deckor
 
-A premium, high-converting, minimal, and technically credible personal portfolio site built using Next.js, Tailwind v4, GSAP, Framer Motion, and React Three Fiber (R3F).
+A premium, high-converting, minimal, and technically credible personal portfolio site built using Next.js 15, Tailwind CSS v4, GSAP, Framer Motion, and React Three Fiber (R3F).
+
+🌐 **Live Demo:** [https://portfoliosite-xi-one.vercel.app](https://portfoliosite-xi-one.vercel.app)
 
 ---
 
@@ -12,7 +14,7 @@ This website has been built with a **strict content-driven architecture**. Futur
 1. **Prepare screenshots**: Save two screenshots of the project:
    - Desktop view (1440px wide): `public/projects/[slug]/desktop.png`
    - Mobile view (375px wide): `public/projects/[slug]/mobile.png`
-2. **Add data entry**: Edit the [projects.ts](file:///c:/Users/user/Desktop/New%20folder%20%284%29/src/data/projects.ts) file and append a new `Project` object:
+2. **Add data entry**: Edit the [`src/data/projects.ts`](src/data/projects.ts) file and append a new `Project` object:
    ```typescript
    {
      slug: "your-project-slug",
@@ -30,10 +32,10 @@ This website has been built with a **strict content-driven architecture**. Futur
 3. **No other file changes are needed!** The homepage featured grid, full catalog grid, dynamic filters, and individual case study pages `/projects/[slug]` will render automatically.
 
 ### Managing Certifications
-- Edit [certifications.ts](file:///c:/Users/user/Desktop/New%20folder%20%284%29/src/data/certifications.ts) to add or remove badges. The grids on the Home and About pages adjust dynamically.
+- Edit [`src/data/certifications.ts`](src/data/certifications.ts) to add or remove badges. The grids on the Home and About pages adjust dynamically.
 
 ### Managing Skills
-- Edit [skills.ts](file:///c:/Users/user/Desktop/New%20folder%20%284%29/src/data/skills.ts) to update the visual stack tag strips.
+- Edit [`src/data/skills.ts`](src/data/skills.ts) to update the visual stack tag strips.
 
 ---
 
@@ -43,7 +45,7 @@ This website has been built with a **strict content-driven architecture**. Futur
 - **Styling**: Tailwind CSS v4 (Imported via standard custom tokens)
 - **Animations**: GSAP (ScrollTrigger & `useGSAP` hook) & Framer Motion (Page and state transitions)
 - **3D Particles**: React Three Fiber (R3F) for interactive mesh background
-- **Design Tokens**: Configured in [MASTER.md](file:///c:/Users/user/Desktop/New%20folder%20%284%29/design-system/MASTER.md)
+- **Design Tokens**: Configured in [`design-system/MASTER.md`](design-system/MASTER.md)
   - Base Background: Deep Charcoal (`#050505`)
   - Accent Color: Warm Amber/Gold (`#D4A527`)
   - Typography: Outfit (Display Headlines) + Inter (Body Copy)
