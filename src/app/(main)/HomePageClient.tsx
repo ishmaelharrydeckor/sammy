@@ -177,7 +177,7 @@ export default function Home() {
       {/* 1. Hero Section */}
       <section
         id="hero"
-        className="relative min-h-[calc(100vh-4rem)] w-full flex flex-col justify-center items-center py-12 md:py-16 z-10 bg-black"
+        className="relative w-full flex flex-col justify-center items-center pt-8 pb-10 md:pt-12 md:pb-14 z-10 bg-black"
       >
         {/* Background Video / Static image overlay container */}
         <div className="absolute inset-0 z-0 overflow-hidden">
@@ -188,7 +188,7 @@ export default function Home() {
               loop
               playsInline
               poster={content.hero.image}
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover scale-105 -translate-y-4 md:-translate-y-6"
             >
               <source src={content.hero.video || "/videos/hero-speaking.mp4"} type="video/mp4" />
             </video>
@@ -198,27 +198,27 @@ export default function Home() {
               alt="Dr. Samuel K. Adanuvo presenting live keynotes at business summits"
               fill
               priority
-              className="object-cover object-center"
+              className="object-cover object-center scale-105 -translate-y-4 md:-translate-y-6"
               sizes="100vw"
           />
           )}
           {/* Dark gradient overlay for text legibility */}
-          <div className="absolute inset-0 bg-gradient-to-b from-black/85 via-black/70 to-black/90 z-10"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-black/92 via-black/82 to-black/95 z-10"></div>
         </div>
 
         {/* Content Wrapper aligned with max-w-7xl */}
         <div className="relative z-20 max-w-7xl mx-auto px-6 lg:px-8 w-full">
-          <div className="max-w-5xl mx-auto flex flex-col items-center justify-center text-center">
-            <span className="hero-subtitle text-[11px] sm:text-xs font-light tracking-[0.25em] text-[#C5A059] uppercase mb-3 md:mb-4 block">
+          <div className="max-w-5xl flex flex-col items-start justify-center text-left">
+            <span className="hero-subtitle text-[11px] sm:text-xs font-light tracking-[0.25em] text-[#C5A059] uppercase mb-3 md:mb-4 block text-left">
               {content.hero.subtitle}
             </span>
-            <h1 className="hero-title text-3xl sm:text-5xl md:text-6xl lg:text-[4.25rem] font-black tracking-tight text-white leading-[1.08] mb-4 md:mb-5 max-w-5xl uppercase">
+            <h1 className="hero-title text-3xl sm:text-5xl md:text-6xl lg:text-[4.25rem] font-black tracking-tight text-white leading-[1.08] mb-4 md:mb-5 max-w-5xl uppercase text-left">
               The Literal <span className="text-[#C5A059] font-black">Cheat Code</span> For <br className="hidden md:inline" />
               Business Growth.
             </h1>
             
             {content.hero.subtext && (
-              <p className="hero-creds text-sm sm:text-base md:text-lg font-light text-white/80 leading-relaxed mb-6 md:mb-7 max-w-2xl mx-auto">
+              <p className="hero-creds text-sm sm:text-base md:text-lg font-light text-white/80 leading-relaxed mb-6 md:mb-7 max-w-2xl text-left">
                 {content.hero.subtext}
               </p>
             )}
@@ -234,7 +234,7 @@ export default function Home() {
               </Link>
             </div>
 
-            <div className="hero-creds text-[10px] sm:text-[11px] tracking-[0.2em] uppercase text-[#C5A059]/80 font-light">
+            <div className="hero-creds text-[10px] sm:text-[11px] tracking-[0.2em] uppercase text-[#C5A059]/80 font-light text-left">
               {content.hero.locations}
             </div>
           </div>
