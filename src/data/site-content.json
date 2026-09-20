@@ -19,8 +19,7 @@
   "proofStrip": [
     { "stat": "120+", "label": "Young leaders at the MMM 1.0 Summit" },
     { "stat": "2000+", "label": "Young entrepreneurs reached" },
-    { "stat": "5+", "label": "Years convening events" },
-    { "stat": "Global", "label": "Spoken on several stages, including international organizations" }
+    { "stat": "5+", "label": "Years convening events" }
   ],
   "intro": {
     "title": "BUILD",

@@ -244,7 +244,7 @@ export default function Home() {
       {/* Proof Strip Section */}
       <section className="relative border-y border-[#C5A059]/20 bg-gradient-to-b from-black via-[#0a0a0a] to-black py-12 md:py-16 px-6 lg:px-8 z-10">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12">
+          <div className={`grid ${content.proofStrip.length === 3 ? "grid-cols-1 md:grid-cols-3" : "grid-cols-2 lg:grid-cols-4"} gap-8 md:gap-12`}>
             {content.proofStrip.map((item, idx) => (
               <div key={idx} className="reveal-up flex flex-col items-center text-center p-2">
                 <span className="text-4xl sm:text-5xl lg:text-6xl font-black text-[#C5A059] tracking-tight mb-2">
