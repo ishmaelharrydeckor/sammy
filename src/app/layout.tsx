@@ -10,8 +10,8 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Samuel Adanuvo | CEO, Author & Entrepreneur Educator",
-  description: "Samuel works with young Africans who are done waiting for permission to build wealth. CEO of Outbrooks Technology Limited, Founder of Sigmart YAE, and Author of The Economy of the Young African Mind.",
+  title: "Samuel Adanuvo | CEO, Author & Keynote Speaker",
+  description: "The literal cheat code for business growth. Samuel Adanuvo leads Outbrooks Consult, the high growth marketing agency that helps businesses and organizations scale exponentially through better digital marketing systems.",
 };
 
 export default function RootLayout({

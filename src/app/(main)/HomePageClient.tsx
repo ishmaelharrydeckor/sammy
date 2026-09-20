@@ -234,10 +234,10 @@ export default function Home() {
             </div>
 
             {/* Credentials Row */}
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-12 md:gap-16 pt-8 w-full max-w-5xl border-t border-white/10">
+            <div className="grid grid-cols-2 lg:grid-cols-4 items-center justify-center gap-6 sm:gap-8 pt-8 w-full max-w-5xl border-t border-white/10">
               {content.hero.credentials.map((cred, idx) => (
-                <div key={idx} className="flex flex-col items-center text-center max-w-xs">
-                  <span className="text-[10px] font-mono tracking-[0.2em] text-[#C5A059] uppercase font-bold mb-2">
+                <div key={idx} className="flex flex-col items-center text-center">
+                  <span className="text-[10px] font-mono tracking-[0.2em] text-[#C5A059] uppercase font-bold mb-1">
                     {cred.label}
                   </span>
                   <span className="text-xs sm:text-sm font-bold text-white uppercase tracking-wider leading-relaxed">
@@ -248,8 +248,26 @@ export default function Home() {
             </div>
 
             <div className="hero-creds mt-5 md:mt-6 text-[10px] tracking-[0.15em] uppercase text-[#C5A059]/70 font-light">
-              📍 {content.hero.locations}
+              {content.hero.locations}
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Proof Strip Section */}
+      <section className="relative border-y border-[#C5A059]/20 bg-gradient-to-b from-black via-[#0a0a0a] to-black py-12 md:py-16 px-6 lg:px-8 z-10">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12">
+            {content.proofStrip.map((item, idx) => (
+              <div key={idx} className="reveal-up flex flex-col items-center text-center p-2">
+                <span className="text-4xl sm:text-5xl lg:text-6xl font-black text-[#C5A059] tracking-tight mb-2">
+                  {item.stat}
+                </span>
+                <span className="text-xs sm:text-sm text-white/70 font-light max-w-[220px] leading-snug">
+                  {item.label}
+                </span>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -347,7 +365,7 @@ export default function Home() {
               Sigmart YAE KNUST Expo 2024
             </h2>
             <p className="text-sm sm:text-base font-light text-black/85 leading-relaxed">
-              In 2024, Sigmart YAE brought real opportunity to KNUST students — in partnership with the SRC, hosting a massive entrepreneurship business fair live at the Parade Grounds.
+              {content.about.expoCallout?.description || "Samuel and the Sigmart YAE team partnered with the KNUST SRC to run a full scale business fair at the Parade Grounds, putting real opportunity in front of thousands of students."}
             </p>
           </div>
 
@@ -478,6 +496,11 @@ export default function Home() {
                       ))}
                     </ul>
                   </div>
+                  {content.programs.offers[0].closing && (
+                    <p className="text-xs text-white/70 italic mb-8 font-light leading-relaxed">
+                      {content.programs.offers[0].closing}
+                    </p>
+                  )}
                 </div>
 
                 <div>
@@ -649,76 +672,88 @@ export default function Home() {
           </div>
 
           <div className="space-y-24">
-            {/* UPCOMING EVENT: The Success Wavelength */}
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
-              {/* Left Column: Featured Visual Poster (Spans 5) */}
-              <div className="lg:col-span-5 flex justify-center reveal-up">
-                <div className="relative w-full aspect-square max-w-[400px] bg-[#0F0F0F] border border-white/5 p-4 flex flex-col gap-6 relative overflow-hidden group">
-                  <span className="text-[8px] font-mono tracking-widest text-black uppercase bg-[#C5A059] px-2.5 py-1 self-start font-bold z-20">
-                    UPCOMING BROADCAST
-                  </span>
-                  <div className="relative w-full aspect-square overflow-hidden bg-black border border-white/5">
-                    <Image
-                      src="/images/events/success-wavelength.jpg"
-                      alt="The Success Wavelength - YouTube Live Broadcast Event Poster"
-                      fill
-                      className="object-cover object-center group-hover:scale-102 transition-transform duration-500 ease-out"
-                      sizes="(max-width: 768px) 100vw, 400px"
-                    />
+            {/* UPCOMING EVENT PLACEHOLDER */}
+            <div className="reveal-up border border-[#C5A059]/30 bg-gradient-to-br from-[#0F0F0F] via-black to-[#0F0F0F] p-8 md:p-12 relative overflow-hidden">
+              <div className="flex flex-col md:flex-row md:items-center justify-between gap-8">
+                <div className="flex flex-col max-w-2xl">
+                  <div className="flex items-center gap-2 mb-3">
+                    <span className="w-2.5 h-2.5 rounded-full bg-[#C5A059] animate-pulse"></span>
+                    <span className="text-[10px] font-mono tracking-[0.25em] text-[#C5A059] uppercase font-bold">
+                      UPCOMING INITIATIVE
+                    </span>
                   </div>
-                </div>
-              </div>
-
-              {/* Right Column: Text Details (Spans 7) */}
-              <div className="lg:col-span-7 flex flex-col justify-center reveal-up">
-                <h3 className="text-3xl font-black tracking-tight text-white uppercase leading-tight mb-4">
-                  The Success Wavelength
-                </h3>
-                <div className="text-xs font-mono tracking-widest text-[#C5A059] uppercase mb-6">
-                  📅 SUNDAY, AUGUST 9TH, 2026 | 7:00 PM
-                </div>
-                <p className="text-sm sm:text-base font-light text-white/85 leading-relaxed mb-8 max-w-xl">
-                  How to unlock the hidden frequency that makes success inevitable. Access is free but restricted to only those with the link. Register below to receive your private stream link.
-                </p>
-
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-8 border-t border-white/5 max-w-lg mb-8">
-                  <div>
-                    <span className="text-[10px] font-bold text-[#C5A059] tracking-wider block mb-1">PLATFORM</span>
-                    <p className="text-xs text-white/60 font-light leading-relaxed">
-                      YouTube Live Streaming on @sammyadanuvo. Stream link sent via email.
-                    </p>
-                  </div>
-                  <div>
-                    <span className="text-[10px] font-bold text-[#C5A059] tracking-wider block mb-1">ACCESS</span>
-                    <p className="text-xs text-white/60 font-light leading-relaxed">
-                      Free restricted access. Fill out the contact form below with the subject "Other" or "Consulting" to register interest.
-                    </p>
-                  </div>
+                  <h3 className="text-2xl sm:text-3xl md:text-4xl font-black tracking-tight text-white uppercase mb-3">
+                    Next Event: To Be Announced
+                  </h3>
+                  <p className="text-sm sm:text-base font-light text-white/80 leading-relaxed">
+                    Follow Samuel on YouTube and Instagram to hear first.
+                  </p>
                 </div>
 
-                <div>
-                  <Link
-                    href="#contact"
-                    className="inline-flex items-center gap-3 rounded-none border border-[#C5A059] bg-[#C5A059] px-8 py-4 text-xs font-bold tracking-[0.2em] text-black hover:bg-[#a3803f] hover:border-[#a3803f] transition-all duration-300 uppercase"
+                <div className="flex flex-wrap items-center gap-4">
+                  <a
+                    href="https://youtube.com/@sammyadanuvo"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 rounded-none border border-white/20 bg-white/5 px-6 py-3.5 text-xs font-bold tracking-[0.15em] text-white hover:bg-white/10 hover:border-white/40 transition-all uppercase"
                   >
-                    REGISTER TO GET THE LINK
-                    <ArrowRight className="h-4 w-4" />
-                  </Link>
+                    YouTube
+                  </a>
+                  <a
+                    href="https://www.instagram.com/sammy_adanuvo"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 rounded-none border border-[#C5A059] bg-[#C5A059] px-6 py-3.5 text-xs font-bold tracking-[0.15em] text-black hover:bg-[#a3803f] transition-all uppercase"
+                  >
+                    Instagram
+                  </a>
                 </div>
               </div>
             </div>
 
             {/* Divider Line */}
-            <div className="border-t border-white/10 my-20"></div>
+            <div className="border-t border-white/10 my-16"></div>
 
             {/* PAST EVENTS SECTION SUB-HEADER */}
             <div className="reveal-up text-left mb-12">
-              <span className="text-[10px] font-bold tracking-[0.25em] text-[#C5A059] uppercase block mb-4">
-                PAST SUMMITS & EDUCATIONAL RECAPS
+              <span className="text-[10px] font-bold tracking-[0.25em] text-[#C5A059] uppercase block mb-3">
+                RECORDED & DELIVERED
               </span>
               <h3 className="text-2xl sm:text-3xl font-black text-white uppercase tracking-tight">
-                Past Event Highlights
+                Past Events
               </h3>
+            </div>
+
+            {/* Entry 1: The Success Wavelength (Past Live Broadcast) */}
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center border border-white/5 bg-[#0A0A0A] p-6 md:p-10 mb-16">
+              <div className="lg:col-span-5 flex justify-center reveal-up">
+                <div className="relative w-full aspect-square max-w-[340px] overflow-hidden bg-black border border-white/10">
+                  <Image
+                    src="/images/events/success-wavelength.jpg"
+                    alt="The Success Wavelength - YouTube Live Broadcast"
+                    fill
+                    className="object-cover object-center group-hover:scale-102 transition-transform duration-500 ease-out"
+                    sizes="(max-width: 768px) 100vw, 340px"
+                  />
+                </div>
+              </div>
+
+              <div className="lg:col-span-7 flex flex-col justify-center reveal-up">
+                <span className="text-[9px] font-mono tracking-widest text-[#C5A059] uppercase font-bold mb-2">
+                  📅 SUNDAY, AUGUST 9TH, 2026
+                </span>
+                <h4 className="text-2xl sm:text-3xl font-black text-white uppercase tracking-tight mb-3">
+                  The Success Wavelength
+                </h4>
+                <p className="text-sm sm:text-base font-light text-white/80 leading-relaxed mb-6 max-w-xl">
+                  A free live broadcast on the mindset behind lasting success.
+                </p>
+                <div className="flex items-center gap-3">
+                  <span className="text-[10px] font-mono tracking-widest text-white/50 uppercase border border-white/10 px-3 py-1.5 bg-white/5">
+                    PLATFORM: YOUTUBE LIVE
+                  </span>
+                </div>
+              </div>
             </div>
 
             {/* Entry 1: Minds, Markets & Movements 1.0 (Past Live Summit) */}
@@ -828,7 +863,7 @@ export default function Home() {
                   Making Impact Through Entrepreneurship
                 </h3>
                 <p className="text-sm sm:text-base font-light text-white/80 leading-relaxed mb-8 max-w-xl">
-                  A strategic training session hosted in partnership with POSSA-KNUST. Focused on equipping young builders to make real-world impact, build sustainable ventures, and navigate entrepreneurial structures in the current economy.
+                  A training session with POSSA KNUST on building sustainable ventures.
                 </p>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-8 border-t border-white/5 max-w-lg">
@@ -1008,18 +1043,18 @@ export default function Home() {
                     EMAIL INQUIRIES
                   </span>
                   <a
-                    href="mailto:outbrookstechnology@gmail.com"
+                    href={`mailto:${content.contact.email}`}
                     className="text-sm font-black text-white hover:text-[#C5A059] transition-colors mt-1 tracking-wider"
                   >
-                    outbrookstechnology@gmail.com
+                    {content.contact.email}
                   </a>
                 </div>
                 <div className="flex flex-col">
                   <span className="text-[9px] font-mono tracking-widest text-white/40 uppercase">
-                    OFFICE LOCATIONS
+                    OFFICE LOCATION
                   </span>
                   <span className="text-sm text-white/80 font-light mt-1 tracking-wide">
-                    Accra, Ghana & London, United Kingdom
+                    {content.contact.office}
                   </span>
                 </div>
               </div>
@@ -1084,7 +1119,7 @@ export default function Home() {
                     <label className="text-[9px] font-mono tracking-widest text-white/50 uppercase">
                       {content.contact.form.subjectLabel}
                     </label>
-                    <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                    <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
                       {content.contact.form.subjectOptions.map((opt) => (
                         <button
                           key={opt}

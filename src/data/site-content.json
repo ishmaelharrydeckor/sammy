@@ -1,18 +1,27 @@
 {
+  "company": "Outbrooks Consult",
+  "contactEmail": "Outbrooksconsult@gmail.com",
   "hero": {
-    "subtitle": "SAMUEL ADANUVO · CEO | AUTHOR | ENTREPRENEUR EDUCATOR",
-    "headline": "The Literal Cheat Code for Business Growth.",
-    "subtext": "Samuel works with credentialed professionals and organizations who want recurring clientele and permanent client acquisition systems. His solutions have helped clients 10x revenue and they are built through the offers, lead generation, and marketing structures that turn expertise into consistent business.",
-    "ctaText": "BOOK A FREE STRATEGY CALL",
+    "subtitle": "SAMUEL ADANUVO · CEO, OUTBROOKS CONSULT | AUTHOR | KEYNOTE SPEAKER",
+    "headline": "The literal cheat code for business growth.",
+    "subtext": "Samuel Adanuvo leads Outbrooks Consult, the high growth marketing agency that helps businesses and organizations scale exponentially, at any stage through better digital marketing systems.",
+    "ctaText": "BOOK SAMUEL",
     "image": "/images/samuel-hero.png",
     "video": "/videos/hero-speaking.mp4",
     "credentials": [
-      { "label": "CEO", "value": "Outbrooks Technology Limited" },
+      { "label": "CEO", "value": "Outbrooks Consult" },
+      { "label": "FOUNDER", "value": "Outbrooks Technology Limited" },
       { "label": "FOUNDER", "value": "Sigmart YAE" },
       { "label": "AUTHOR", "value": "The Economy of the Young African Mind" }
     ],
-    "locations": "KUMASI · ACCRA · AND WHEREVER HE'S NEEDED"
+    "locations": "📍 Kumasi · Accra · Wherever your business is"
   },
+  "proofStrip": [
+    { "stat": "120+", "label": "Young leaders at the MMM 1.0 Summit" },
+    { "stat": "2000+", "label": "Young entrepreneurs reached" },
+    { "stat": "5+", "label": "Years convening events" },
+    { "stat": "Global", "label": "Spoken on several stages, including international organizations" }
+  ],
   "intro": {
     "title": "BUILD",
     "paragraph": "Samuel works with young Africans who are done waiting for permission to build wealth. Through consulting, community, and content — he helps ambitious people turn the businesses they have into the businesses they actually want."
@@ -20,15 +29,18 @@
   "about": {
     "badge": "ABOUT SAMUEL",
     "sidebarHeading": "CEO · FOUNDER · AUTHOR",
-    "sidebarSub": "Outbrooks · Sigmart YAE",
-    "heading": "Samuel builds the systems behind businesses that grow without guesswork.",
+    "sidebarSub": "Outbrooks Consult · Sigmart YAE",
+    "heading": "He doesn't just market businesses. He builds growth machines.",
     "portraitImage": "/images/samuel-portrait.png",
     "paragraphs": [
-      "Samuel is a business growth consultant working with credentialed professionals(doctors, lawyers, pharmacists, engineers etc.) in their businesses as well as organizations. He builds the offers, lead generation systems, and marketing structures that turn expertise into recurring clients and predictable revenue.",
-      "He is the CEO of Outbrooks Technology Limited, Founder and Project Lead of the Sigmart YAE Network, and the author of The Economy of the Young African Mind. His background includes a Doctor of Pharmacy, and that same discipline is what he brings into every client engagement.",
-      "The work is simple in principle: most professionals are excellent at what they do and still don't have a system bringing them consistent clients. Samuel builds that system."
+      "Samuel is a Doctor of Pharmacy who walked away from the expected path to build. While still at KNUST, he founded Outbrooks Technology Limited and grew a campus entrepreneurship initiative into Sigmart YAE, a pan African network that has reached thousands of young entrepreneurs.",
+      "Today he runs Outbrooks Consult, a high growth digital marketing agency that builds the marketing systems that help businesses and organizations scale. Beyond the agency, he speaks on stages across Africa and beyond, mentors young builders, and is writing The Economy of the Young African Mind."
     ],
-    "ctaText": "LEARN MORE ABOUT SAMUEL'S WORK"
+    "ctaText": "SEE HOW WE WORK",
+    "expoCallout": {
+      "title": "SIGMART YAE KNUST EXPO 2024",
+      "description": "Samuel and the Sigmart YAE team partnered with the KNUST SRC to run a full scale business fair at the Parade Grounds, putting real opportunity in front of thousands of students."
+    }
   },
   "programs": {
     "title": "Work With Samuel",
@@ -36,29 +48,31 @@
     "offers": [
       {
         "badge": "OFFER 1",
-        "title": "Business Growth Consulting",
-        "description": "Your business should be growing. If it isn't, something needs to change. Samuel works with professionals and organizations who are making sales but not scaling. They are good at the work but don't have a system bringing in clients consistently. Engagements range from a single strategy session to done-with-you and done-for-you consulting, including yearly contracts for organizations that want an ongoing growth partner. Every engagement is built around the client's actual numbers, actual offer, and actual market, not generic advice.",
-        "featuresTitle": "What you get:",
+        "title": "The Growth Engine",
+        "description": "Most marketing is random posts and hope. Samuel builds a complete growth engine around your business, whatever stage you're at.\n\nIt starts with a full audit of where you are. Then we build the systems your business needs to scale, which may include:",
+        "featuresTitle": "The 6-Pillar System:",
         "features": [
-          "A clear audit of your offer, client acquisition, and current gaps",
-          "A growth roadmap built for your business and your goals",
-          "Flexible engagement models, from a single strategy session to full done-for-you systems",
-          "Direct accountability, with frameworks proven to help clients grow revenue significantly"
+          "Clarity: tracking that shows exactly what's working.",
+          "Visibility: content and search presence that put you in front of the right people.",
+          "Conversion: funnels and sales systems that turn attention into revenue.",
+          "Acceleration: paid advertising to scale what's already working.",
+          "Loyalty: referral and retention systems that multiply your customers.",
+          "Handover: documented systems and a team that knows how to run them."
         ],
+        "closing": "Every business is different, so the mix is too. Work with us however suits you: done for you, done with you, or training your team. Engagements range from a single strategy session to a long term growth partnership.",
         "ctaText": "BOOK A FREE STRATEGY CALL"
       },
       {
         "badge": "OFFER 2",
         "title": "Speaking Engagements",
-        "description": "The right message, delivered to the right room, changes everything. Samuel speaks on business strategy, leadership, and the mindset behind building real wealth — to corporate teams, universities, conferences, and youth organizations across Africa and beyond. These aren't motivational talks for their own sake. Every session is built to leave the audience with a shift in how they think and a clear direction for what to do next.",
-        "featuresTitle": "Topics Samuel speaks on:",
+        "description": "Samuel has taken the stage at universities, conferences, faith communities and global organizations, and has convened summits and business fairs of his own. Every talk leaves your audience thinking differently and knowing exactly what to do next.",
+        "featuresTitle": "Topics:",
         "features": [
-          "Building wealth from the ground up — the mindset and the mechanics",
-          "Leadership that actually produces results",
+          "Building wealth from the ground up",
+          "Leadership that produces results",
           "Business strategy for the African market",
           "The economy of the young African mind"
         ],
-        "closing": "If you're organizing an event and want a speaker who will add real value to your audience, reach out.",
         "ctaText": "BOOK SAMUEL TO SPEAK"
       }
     ]
@@ -67,38 +81,58 @@
     "title": "THE ECONOMY OF THE YOUNG AFRICAN MIND",
     "author": "By Samuel Adanuvo",
     "coverImage": "/images/book-cover.png",
-    "description": "This book is about what happens when a young African decides to think like a builder instead of a survivor. It covers the mental frameworks, the economic realities, and the wealth principles that most people on this continent were never taught — and what changes when they finally are.",
+    "description": "What happens when a young African decides to think like a builder, not a survivor? This book covers the mindset, the economics and the wealth principles most of us were never taught.",
     "quote": "“Unless you rewire your internal economy and retrain your thinking, beliefs, and sense of possibility, nothing that flows out of you will create any meaningful impact or lasting wealth.”",
     "quoteSource": "— FROM THE BOOK",
-    "status": "The full release is coming. Be among the first to know.",
+    "status": "Coming late 2026. Join the waitlist to be first.",
     "ctaText": "JOIN THE WAITLIST"
   },
   "events": {
-    "title": "EVENT HIGHLIGHTS",
-    "headline": "MINDS, MARKETS & MOVEMENTS 1.0",
-    "locationTime": "JULY 2026 | KNUST, KUMASI, GHANA",
-    "description": "A past live summit for young African entrepreneurs. One day. Real conversations. Serious strategy. More events will be announced. Stay connected.",
-    "ctaText": "SEE HIGHLIGHTS"
+    "title": "EVENTS",
+    "upcoming": {
+      "status": "Next Event: To Be Announced",
+      "note": "Follow Samuel on YouTube and Instagram to hear first."
+    },
+    "pastEvents": [
+      {
+        "title": "The Success Wavelength",
+        "date": "August 9, 2026",
+        "description": "A free live broadcast on the mindset behind lasting success."
+      },
+      {
+        "title": "Minds, Markets & Movements 1.0",
+        "date": "July 2026",
+        "venue": "KNUST, Kumasi",
+        "description": "120 young entrepreneurs, one day, serious strategy. Conceived, led and delivered by Samuel.",
+        "ctaText": "See Highlights"
+      },
+      {
+        "title": "Making Impact Through Entrepreneurship",
+        "date": "March 18, 2023",
+        "venue": "CCB Auditorium, KNUST",
+        "description": "A training session with POSSA KNUST on building sustainable ventures."
+      }
+    ]
   },
   "videoInsights": {
     "title": "Watch Samuel in Action",
-    "description": "Explore business growth frameworks, wealth structures, and practical strategy shared live by Samuel.",
+    "description": "Practical business and wealth lessons, shared live.",
     "items": [
       {
         "title": "The 4 Levels of Income",
-        "desc": "Why most people never leave Level 2 and how to transition to building sustainable wealth systems.",
+        "desc": "Why most people stay stuck at Level 2, and how to move up.",
         "url": "https://youtu.be/Qq8g1lp1Fis?si=zG33LhbUqx0FHAvy",
         "tag": "WEALTH SYSTEMS"
       },
       {
         "title": "Money Systems for Believers",
-        "desc": "Understanding the financial mindsets and principles crucial for building wealth as a Christian.",
+        "desc": "Building wealth with a Christian mindset.",
         "url": "https://youtu.be/oDKK2ZyhHvo?si=Rq28_wYWXPR-sLwl",
         "tag": "STRATEGY & FAITH"
       },
       {
         "title": "The Mystery of Money Systems",
-        "desc": "How to go from zero to wealth fast by understanding the structures of cash flow and assets.",
+        "desc": "How cash flow and assets work.",
         "url": "https://youtu.be/wkb2Sa4wj6c?si=owB1Yu47atW3Bj1n",
         "tag": "BUSINESS ACCELERATION"
       }
@@ -123,26 +157,49 @@
   },
   "contact": {
     "title": "GET IN TOUCH",
-    "description": "Whether you're exploring consulting, have a question about MMM 1.0, or just want to connect — reach out. Samuel's team responds within 2 business days.",
+    "description": "Ready to scale? Send a message and Samuel's team will reply within 2 business days.",
+    "email": "Outbrooksconsult@gmail.com",
+    "office": "Kumasi, Ghana",
     "form": {
       "nameLabel": "FULL NAME",
       "emailLabel": "EMAIL ADDRESS",
       "subjectLabel": "SUBJECT",
-      "subjectOptions": ["Consulting", "MMM 1.0", "Speaking", "Other"],
+      "subjectOptions": [
+        "Consulting",
+        "Speaking",
+        "MMM 1.0",
+        "Events",
+        "Other"
+      ],
       "messageLabel": "MESSAGE",
       "ctaText": "SEND MESSAGE"
     }
   },
   "footer": {
     "connectTitle": "LET'S CONNECT",
-    "connectDescription": "Samuel shares practical insights on business growth, offers, and client acquisition consistently, across platforms. Follow along for content that's actually worth your time.",
+    "connectDescription": "Samuel shares practical insights on business growth, offers and client acquisition. Follow along.",
     "socials": [
-      { "name": "LINKEDIN", "url": "https://www.linkedin.com/in/dr-samuel-adanuvo-a76955210" },
-      { "name": "INSTAGRAM", "url": "https://www.instagram.com/sammy_adanuvo" },
-      { "name": "YOUTUBE", "url": "https://youtube.com/@sammyadanuvo" },
-      { "name": "TIKTOK", "url": "https://www.tiktok.com/@sammy_adanuvo" },
-      { "name": "FACEBOOK", "url": "https://www.facebook.com/share/1MAESjaEMo/" }
+      {
+        "name": "LINKEDIN",
+        "url": "https://www.linkedin.com/in/dr-samuel-adanuvo-a76955210"
+      },
+      {
+        "name": "INSTAGRAM",
+        "url": "https://www.instagram.com/sammy_adanuvo"
+      },
+      {
+        "name": "YOUTUBE",
+        "url": "https://youtube.com/@sammyadanuvo"
+      },
+      {
+        "name": "TIKTOK",
+        "url": "https://www.tiktok.com/@sammy_adanuvo"
+      },
+      {
+        "name": "FACEBOOK",
+        "url": "https://www.facebook.com/share/1MAESjaEMo/"
+      }
     ],
-    "copyright": "© 2026 SAMUEL ADANUVO | OUTBROOKS TECHNOLOGY LIMITED. ALL RIGHTS RESERVED."
+    "copyright": "© 2026 Samuel Adanuvo | Outbrooks Consult. All rights reserved."
   }
 }
