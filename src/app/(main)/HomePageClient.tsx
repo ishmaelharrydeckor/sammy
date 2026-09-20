@@ -224,7 +224,7 @@ export default function Home() {
             )}
             
             {/* CTA Button */}
-            <div className="hero-cta mb-8 md:mb-12">
+            <div className="hero-cta mb-6 md:mb-8">
               <Link
                 href="#contact"
                 className="inline-flex items-center gap-3 rounded-none border border-[#C5A059] bg-[#C5A059] px-9 py-5 text-xs font-bold tracking-[0.2em] text-black hover:bg-[#a3803f] hover:border-[#a3803f] transition-all duration-300 hover-scale uppercase"
@@ -234,21 +234,7 @@ export default function Home() {
               </Link>
             </div>
 
-            {/* Credentials Row */}
-            <div className="grid grid-cols-2 lg:grid-cols-4 items-center justify-center gap-6 sm:gap-8 pt-8 w-full max-w-5xl border-t border-white/10">
-              {content.hero.credentials.map((cred, idx) => (
-                <div key={idx} className="flex flex-col items-center text-center">
-                  <span className="text-[10px] font-mono tracking-[0.2em] text-[#C5A059] uppercase font-bold mb-1">
-                    {cred.label}
-                  </span>
-                  <span className="text-xs sm:text-sm font-bold text-white uppercase tracking-wider leading-relaxed">
-                    {cred.value}
-                  </span>
-                </div>
-              ))}
-            </div>
-
-            <div className="hero-creds mt-5 md:mt-6 text-[10px] tracking-[0.15em] uppercase text-[#C5A059]/70 font-light">
+            <div className="hero-creds text-[10px] sm:text-[11px] tracking-[0.2em] uppercase text-[#C5A059]/80 font-light">
               {content.hero.locations}
             </div>
           </div>
