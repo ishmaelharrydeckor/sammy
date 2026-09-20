@@ -334,19 +334,13 @@ export default function Home() {
 
               </div>
               
-              <div className="reveal-up w-full max-w-[400px] mt-6 bg-[#0F0F0F] border border-white/5 p-6 flex flex-col gap-4">
-                <div className="flex flex-col">
-                  <span className="text-[9px] font-bold tracking-[0.2em] text-[#C5A059] uppercase">CEO</span>
-                  <span className="text-xs text-white/70 uppercase mt-0.5 font-semibold">Outbrooks Technology Limited</span>
-                </div>
-                <div className="flex flex-col border-t border-white/5 pt-3">
-                  <span className="text-[9px] font-bold tracking-[0.2em] text-[#C5A059] uppercase">Founder</span>
-                  <span className="text-xs text-white/70 uppercase mt-0.5 font-semibold">Sigmart YAE</span>
-                </div>
-                <div className="flex flex-col border-t border-white/5 pt-3">
-                  <span className="text-[9px] font-bold tracking-[0.2em] text-[#C5A059] uppercase">Author</span>
-                  <span className="text-xs text-white/70 uppercase mt-0.5 font-semibold">The Economy of the Young African Mind</span>
-                </div>
+              <div className="reveal-up w-full max-w-[400px] mt-6 bg-[#0F0F0F] border border-white/5 p-6 flex flex-col gap-3">
+                {content.hero.credentials.map((cred, idx) => (
+                  <div key={idx} className={`flex flex-col ${idx > 0 ? "border-t border-white/5 pt-3" : ""}`}>
+                    <span className="text-[9px] font-bold tracking-[0.2em] text-[#C5A059] uppercase">{cred.label}</span>
+                    <span className="text-xs text-white/80 uppercase mt-0.5 font-semibold">{cred.value}</span>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
