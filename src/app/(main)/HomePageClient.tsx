@@ -742,13 +742,13 @@ export default function Home() {
               {/* Left Column: Text Details (Spans 5) */}
               <div className="lg:col-span-5 flex flex-col justify-center reveal-up">
                 <h3 className="text-3xl font-black tracking-tight text-white uppercase leading-tight mb-4">
-                  {content.events.headline}
+                  {content.events.headline || "MMM 1.0 SUMMIT"}
                 </h3>
                 <div className="text-xs font-mono tracking-widest text-[#C5A059] uppercase mb-6">
-                  📅 {content.events.locationTime}
+                  📅 {content.events.locationTime || "JULY 2026 · KNUST, KUMASI"}
                 </div>
                 <p className="text-sm sm:text-base font-light text-white/85 leading-relaxed mb-8 max-w-md">
-                  {content.events.description}
+                  {content.events.description || "120 young entrepreneurs, one day, serious strategy. Conceived, led and delivered by Samuel."}
                 </p>
 
                 {/* Event Info Bullets */}
@@ -772,7 +772,7 @@ export default function Home() {
                     href="#mmm-gallery"
                     className="inline-flex items-center gap-3 rounded-none border border-[#C5A059] bg-[#C5A059] px-8 py-4 text-xs font-bold tracking-[0.2em] text-black hover:bg-[#a3803f] hover:border-[#a3803f] transition-all duration-300 uppercase"
                   >
-                    {content.events.ctaText}
+                    {content.events.ctaText || "See Highlights"}
                     <ArrowRight className="h-4 w-4" />
                   </a>
                 </div>
