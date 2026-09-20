@@ -14,6 +14,76 @@ if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
 }
 
+function StatCounter({ stat, label }: { stat: string; label: string }) {
+  const counterRef = useRef<HTMLSpanElement>(null);
+  const numericMatch = stat.match(/\d+/);
+  const target = numericMatch ? parseInt(numericMatch[0], 10) : null;
+  const suffix = stat.replace(/[\d,]/g, "");
+  const useComma = stat.includes(",");
+
+  const [displayValue, setDisplayValue] = useState<string>(() => {
+    if (target === null) return stat;
+    return `0${suffix}`;
+  });
+
+  useEffect(() => {
+    const el = counterRef.current;
+    if (!el || target === null) return;
+
+    let hasTriggered = false;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && !hasTriggered) {
+            hasTriggered = true;
+            const counter = { val: 0 };
+            gsap.to(counter, {
+              val: target,
+              duration: 2,
+              ease: "power2.out",
+              onUpdate: () => {
+                const current = Math.floor(counter.val);
+                const formatted = useComma
+                  ? current.toLocaleString("en-US")
+                  : current.toString();
+                setDisplayValue(`${formatted}${suffix}`);
+              },
+              onComplete: () => {
+                const finalFormatted = useComma
+                  ? target.toLocaleString("en-US")
+                  : target.toString();
+                setDisplayValue(`${finalFormatted}${suffix}`);
+              },
+            });
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    observer.observe(el);
+
+    return () => {
+      observer.disconnect();
+    };
+  }, [stat, target, suffix, useComma]);
+
+  return (
+    <div className="reveal-up flex flex-col items-center text-center p-2">
+      <span
+        ref={counterRef}
+        className="text-4xl sm:text-5xl lg:text-6xl font-black text-[#C5A059] tracking-tight mb-2 block leading-none"
+      >
+        {displayValue}
+      </span>
+      <span className="text-xs sm:text-sm text-white/70 font-light max-w-[220px] leading-snug">
+        {label}
+      </span>
+    </div>
+  );
+}
+
 export default function Home() {
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -246,14 +316,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto">
           <div className={`grid ${content.proofStrip.length === 3 ? "grid-cols-1 md:grid-cols-3" : "grid-cols-2 lg:grid-cols-4"} gap-8 md:gap-12`}>
             {content.proofStrip.map((item, idx) => (
-              <div key={idx} className="reveal-up flex flex-col items-center text-center p-2">
-                <span className="text-4xl sm:text-5xl lg:text-6xl font-black text-[#C5A059] tracking-tight mb-2">
-                  {item.stat}
-                </span>
-                <span className="text-xs sm:text-sm text-white/70 font-light max-w-[220px] leading-snug">
-                  {item.label}
-                </span>
-              </div>
+              <StatCounter key={idx} stat={item.stat} label={item.label} />
             ))}
           </div>
         </div>
