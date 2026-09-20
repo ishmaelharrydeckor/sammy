@@ -177,7 +177,7 @@ export default function Home() {
       {/* 1. Hero Section */}
       <section
         id="hero"
-        className="relative min-h-screen w-full flex flex-col justify-start md:justify-center items-center pt-20 pb-16 md:pt-24 md:pb-20 z-10 bg-black"
+        className="relative min-h-[calc(100vh-4rem)] w-full flex flex-col justify-center items-center py-12 md:py-16 z-10 bg-black"
       >
         {/* Background Video / Static image overlay container */}
         <div className="absolute inset-0 z-0 overflow-hidden">
@@ -209,25 +209,25 @@ export default function Home() {
         {/* Content Wrapper aligned with max-w-7xl */}
         <div className="relative z-20 max-w-7xl mx-auto px-6 lg:px-8 w-full">
           <div className="max-w-5xl mx-auto flex flex-col items-center justify-center text-center">
-            <span className="hero-subtitle text-[11px] font-light tracking-[0.25em] text-[#C5A059] uppercase mb-3 md:mb-4 block">
+            <span className="hero-subtitle text-[11px] sm:text-xs font-light tracking-[0.25em] text-[#C5A059] uppercase mb-3 md:mb-4 block">
               {content.hero.subtitle}
             </span>
-            <h1 className="hero-title text-3xl sm:text-5xl md:text-6xl lg:text-[4.25rem] font-black tracking-tight text-white leading-[1.1] mb-5 md:mb-7 max-w-6xl uppercase">
+            <h1 className="hero-title text-3xl sm:text-5xl md:text-6xl lg:text-[4.25rem] font-black tracking-tight text-white leading-[1.08] mb-4 md:mb-5 max-w-5xl uppercase">
               The Literal <span className="text-[#C5A059] font-black">Cheat Code</span> For <br className="hidden md:inline" />
               <span className="text-[#C5A059] font-black">Business Growth</span>.
             </h1>
             
             {content.hero.subtext && (
-              <p className="hero-creds text-sm sm:text-base md:text-lg font-light text-white/80 leading-relaxed mb-6 md:mb-8 max-w-4xl">
+              <p className="hero-creds text-sm sm:text-base md:text-lg font-light text-white/80 leading-relaxed mb-6 md:mb-7 max-w-2xl mx-auto">
                 {content.hero.subtext}
               </p>
             )}
             
             {/* CTA Button */}
-            <div className="hero-cta mb-6 md:mb-8">
+            <div className="hero-cta mb-4 md:mb-5">
               <Link
                 href="#contact"
-                className="inline-flex items-center gap-3 rounded-none border border-[#C5A059] bg-[#C5A059] px-9 py-5 text-xs font-bold tracking-[0.2em] text-black hover:bg-[#a3803f] hover:border-[#a3803f] transition-all duration-300 hover-scale uppercase"
+                className="inline-flex items-center gap-3 rounded-none border border-[#C5A059] bg-[#C5A059] px-9 py-4.5 text-xs font-bold tracking-[0.2em] text-black hover:bg-[#a3803f] hover:border-[#a3803f] transition-all duration-300 hover-scale uppercase"
               >
                 {content.hero.ctaText}
                 <ArrowRight className="h-4 w-4" />
