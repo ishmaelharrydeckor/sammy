@@ -214,7 +214,7 @@ export default function Home() {
             </span>
             <h1 className="hero-title text-3xl sm:text-5xl md:text-6xl lg:text-[4.25rem] font-black tracking-tight text-white leading-[1.08] mb-4 md:mb-5 max-w-5xl uppercase">
               The Literal <span className="text-[#C5A059] font-black">Cheat Code</span> For <br className="hidden md:inline" />
-              <span className="text-[#C5A059] font-black">Business Growth</span>.
+              Business Growth.
             </h1>
             
             {content.hero.subtext && (
