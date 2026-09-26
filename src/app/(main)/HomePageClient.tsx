@@ -70,14 +70,14 @@ function StatCounter({ stat, label }: { stat: string; label: string }) {
   }, [stat, target, suffix, useComma]);
 
   return (
-    <div className="reveal-up flex flex-col items-center text-center p-2">
+    <div className="reveal-up flex flex-col items-center text-center p-1 sm:p-2">
       <span
         ref={counterRef}
-        className="text-4xl sm:text-5xl lg:text-6xl font-black text-[#C5A059] tracking-tight mb-2 block leading-none"
+        className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-[#C5A059] tracking-tight mb-1 sm:mb-2 block leading-none"
       >
         {displayValue}
       </span>
-      <span className="text-xs sm:text-sm text-white/70 font-light max-w-[220px] leading-snug">
+      <span className="text-[10px] sm:text-xs md:text-sm text-white/70 font-light max-w-[110px] sm:max-w-[220px] leading-tight sm:leading-snug">
         {label}
       </span>
     </div>
@@ -312,9 +312,9 @@ export default function Home() {
       </section>
 
       {/* Proof Strip Section */}
-      <section className="relative border-y border-[#C5A059]/20 bg-gradient-to-b from-black via-[#0a0a0a] to-black py-12 md:py-16 px-6 lg:px-8 z-10">
+      <section className="relative border-y border-[#C5A059]/20 bg-gradient-to-b from-black via-[#0a0a0a] to-black py-8 sm:py-12 md:py-16 px-4 sm:px-6 lg:px-8 z-10">
         <div className="max-w-7xl mx-auto">
-          <div className={`grid ${content.proofStrip.length === 3 ? "grid-cols-1 md:grid-cols-3" : "grid-cols-2 lg:grid-cols-4"} gap-8 md:gap-12`}>
+          <div className={`grid ${content.proofStrip.length === 3 ? "grid-cols-3" : "grid-cols-2 lg:grid-cols-4"} gap-2 sm:gap-6 md:gap-12`}>
             {content.proofStrip.map((item, idx) => (
               <StatCounter key={idx} stat={item.stat} label={item.label} />
             ))}
@@ -1066,29 +1066,29 @@ export default function Home() {
       {/* 8. Contact Section */}
       <section
         id="contact"
-        className="relative border-t border-white/5 bg-black pt-18 pb-20 md:pt-24 md:pb-24 z-10"
+        className="relative border-t border-white/5 bg-black py-16 sm:py-20 md:py-24 px-4 sm:px-6 lg:px-8 z-10"
       >
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 sm:gap-12 lg:gap-16 items-start">
             
             {/* Left Info Column (Spans 5) */}
             <div className="lg:col-span-5 flex flex-col reveal-up">
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white leading-tight uppercase mb-6">
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white leading-tight uppercase mb-4 sm:mb-6">
                 {content.contact.title}
               </h2>
-              <p className="text-sm sm:text-base font-light text-white/75 leading-relaxed mb-12 max-w-md">
+              <p className="text-sm sm:text-base font-light text-white/75 leading-relaxed mb-8 sm:mb-12 max-w-md">
                 {content.contact.description}
               </p>
 
               {/* Direct Channels */}
-              <div className="flex flex-col gap-6 border-t border-white/5 pt-12">
+              <div className="flex flex-col gap-6 border-t border-white/5 pt-8 sm:pt-12">
                 <div className="flex flex-col">
                   <span className="text-[9px] font-mono tracking-widest text-white/40 uppercase">
                     EMAIL INQUIRIES
                   </span>
                   <a
                     href={`mailto:${content.contact.email}`}
-                    className="text-sm font-black text-white hover:text-[#C5A059] transition-colors mt-1 tracking-wider"
+                    className="text-xs sm:text-sm font-black text-white hover:text-[#C5A059] transition-colors mt-1 tracking-wider break-all"
                   >
                     {content.contact.email}
                   </a>
@@ -1105,7 +1105,7 @@ export default function Home() {
             </div>
 
             {/* Right Form Column (Spans 7) */}
-            <div className="lg:col-span-7 reveal-up bg-[#0F0F0F] border border-white/5 p-10 md:p-12">
+            <div className="lg:col-span-7 reveal-up bg-[#0F0F0F] border border-white/5 p-6 sm:p-8 md:p-12">
               {contactStatus === "success" ? (
                 <div className="flex flex-col items-center justify-center py-12 text-center">
                   <span className="text-3xl text-[#C5A059] mb-4">✓</span>
@@ -1123,8 +1123,8 @@ export default function Home() {
                   </button>
                 </div>
               ) : (
-                <form onSubmit={handleContactSubmit} className="space-y-8">
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+                <form onSubmit={handleContactSubmit} className="space-y-6 sm:space-y-8">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-8">
                     {/* Name */}
                     <div className="flex flex-col gap-2">
                       <label htmlFor="name" className="text-[9px] font-mono tracking-widest text-white/50 uppercase">
@@ -1137,7 +1137,7 @@ export default function Home() {
                         value={contactForm.name}
                         onChange={(e) => setContactForm({ ...contactForm, name: e.target.value })}
                         disabled={contactStatus === "submitting"}
-                        className="bg-black border border-white/10 px-4 py-4 text-xs font-mono text-white tracking-widest focus:outline-none focus:border-[#C5A059] disabled:opacity-50"
+                        className="bg-black border border-white/10 px-4 py-3.5 sm:py-4 text-xs font-mono text-white tracking-widest focus:outline-none focus:border-[#C5A059] disabled:opacity-50"
                       />
                     </div>
 
@@ -1153,7 +1153,7 @@ export default function Home() {
                         value={contactForm.email}
                         onChange={(e) => setContactForm({ ...contactForm, email: e.target.value })}
                         disabled={contactStatus === "submitting"}
-                        className="bg-black border border-white/10 px-4 py-4 text-xs font-mono text-white tracking-widest focus:outline-none focus:border-[#C5A059] disabled:opacity-50"
+                        className="bg-black border border-white/10 px-4 py-3.5 sm:py-4 text-xs font-mono text-white tracking-widest focus:outline-none focus:border-[#C5A059] disabled:opacity-50"
                       />
                     </div>
                   </div>
@@ -1163,14 +1163,14 @@ export default function Home() {
                     <label className="text-[9px] font-mono tracking-widest text-white/50 uppercase">
                       {content.contact.form.subjectLabel}
                     </label>
-                    <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
+                    <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2 sm:gap-3">
                       {content.contact.form.subjectOptions.map((opt) => (
                         <button
                           key={opt}
                           type="button"
                           onClick={() => setContactForm({ ...contactForm, subject: opt })}
                           disabled={contactStatus === "submitting"}
-                          className={`py-3 text-[10px] font-bold tracking-[0.15em] uppercase border transition-all duration-300 ${
+                          className={`py-3 px-2 text-[9px] sm:text-[10px] font-bold tracking-[0.1em] sm:tracking-[0.15em] uppercase border transition-all duration-300 text-center ${
                             contactForm.subject === opt
                               ? "bg-[#C5A059] border-[#C5A059] text-black"
                               : "bg-black border-white/10 text-white/60 hover:border-white/30 hover:text-white"
@@ -1190,11 +1190,11 @@ export default function Home() {
                     <textarea
                       id="message"
                       required
-                      rows={5}
+                      rows={4}
                       value={contactForm.message}
                       onChange={(e) => setContactForm({ ...contactForm, message: e.target.value })}
                       disabled={contactStatus === "submitting"}
-                      className="bg-black border border-white/10 px-4 py-4 text-xs font-light text-white tracking-wide focus:outline-none focus:border-[#C5A059] disabled:opacity-50 resize-none leading-relaxed"
+                      className="bg-black border border-white/10 px-4 py-3.5 sm:py-4 text-xs font-light text-white tracking-wide focus:outline-none focus:border-[#C5A059] disabled:opacity-50 resize-none leading-relaxed"
                     ></textarea>
                   </div>
 
@@ -1206,7 +1206,7 @@ export default function Home() {
                     <button
                       type="submit"
                       disabled={contactStatus === "submitting"}
-                      className="w-full bg-[#C5A059] border border-[#C5A059] text-black py-5 text-xs font-bold tracking-[0.2em] hover:bg-[#a3803f] hover:border-[#a3803f] transition-all duration-300 disabled:opacity-50 uppercase"
+                      className="w-full bg-[#C5A059] border border-[#C5A059] text-black py-4 sm:py-5 text-xs font-bold tracking-[0.2em] hover:bg-[#a3803f] hover:border-[#a3803f] transition-all duration-300 disabled:opacity-50 uppercase"
                     >
                       {contactStatus === "submitting" ? "SENDING..." : content.contact.form.ctaText}
                     </button>
