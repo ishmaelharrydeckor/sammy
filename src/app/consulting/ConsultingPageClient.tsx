@@ -14,6 +14,31 @@ export default function ConsultingPageClient() {
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
   const [activeFaq, setActiveFaq] = useState<number | null>(null);
 
+  // Testimonial carousel state
+  const [activeTestimonial, setActiveTestimonial] = useState<number>(0);
+  const testimonialTrackRef = useRef<HTMLDivElement>(null);
+
+  const scrollToTestimonial = (index: number) => {
+    setActiveTestimonial(index);
+    if (!testimonialTrackRef.current) return;
+    const targetCard = testimonialTrackRef.current.children[index] as HTMLElement;
+    if (targetCard) {
+      testimonialTrackRef.current.scrollTo({
+        left: Math.max(0, targetCard.offsetLeft - 16),
+        behavior: "smooth",
+      });
+    }
+  };
+
+  const handleTestimonialScroll = () => {
+    if (!testimonialTrackRef.current) return;
+    const { scrollLeft, clientWidth } = testimonialTrackRef.current;
+    const newIndex = scrollLeft > clientWidth * 0.35 ? 1 : 0;
+    if (newIndex !== activeTestimonial) {
+      setActiveTestimonial(newIndex);
+    }
+  };
+
   // Form state
   const [formData, setFormData] = useState({
     name: "",
@@ -342,10 +367,10 @@ export default function ConsultingPageClient() {
       {/* 4. Proof Section */}
       <section
         id="proof"
-        className="relative bg-[#E2E2E2] py-18 md:py-24 px-6 lg:px-8 z-10 text-black border-t border-black/10"
+        className="relative bg-[#E2E2E2] py-16 sm:py-20 md:py-24 px-4 sm:px-6 lg:px-8 z-10 text-black border-t border-black/10"
       >
         <div className="max-w-7xl mx-auto">
-          <div className="reveal-up text-center mb-16 max-w-2xl mx-auto">
+          <div className="reveal-up text-center mb-10 sm:mb-14 md:mb-16 max-w-2xl mx-auto">
             <span className="text-[10px] font-bold tracking-[0.25em] text-[#C5A059] uppercase block mb-4">
               PROOF OF REAL WORLD RESULTS
             </span>
@@ -353,17 +378,102 @@ export default function ConsultingPageClient() {
               Real Impact, Real Systems
             </h2>
             <p className="text-sm sm:text-base font-light text-black/85 leading-relaxed">
-              Samuel's consulting methodologies are backed by years of building real-world platforms, scalable business models, and operations.
+              Samuel&apos;s consulting methodologies are backed by years of building real-world platforms, scalable business models, and operations.
             </p>
           </div>
 
-          {/* Testimonials */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch reveal-group mt-12 md:mt-16">
-            <div className="reveal-child flex flex-col justify-between p-8 bg-[#DFDFDF] border border-black/5">
+          {/* Mobile Indicator Dots (Centered - 2 Slides) */}
+          <div className="flex md:hidden items-center justify-center gap-2 mb-6">
+            {[0, 1].map((idx) => (
+              <button
+                key={idx}
+                type="button"
+                onClick={() => scrollToTestimonial(idx)}
+                aria-label={`Go to testimonial slide ${idx + 1}`}
+                className="p-1 focus:outline-none"
+              >
+                <span
+                  className={`block h-1.5 rounded-full transition-all duration-300 ${
+                    activeTestimonial === idx ? "w-6 bg-[#C5A059]" : "w-1.5 bg-black/25"
+                  }`}
+                />
+              </button>
+            ))}
+          </div>
+
+          {/* Mobile Track: 2 Balanced Slides on Mobile (< md) */}
+          <div
+            ref={testimonialTrackRef}
+            onScroll={handleTestimonialScroll}
+            className="flex md:hidden gap-5 sm:gap-6 overflow-x-auto snap-x snap-mandatory items-stretch -mx-4 sm:-mx-6 px-4 sm:px-6 pb-4 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
+          >
+            {/* Slide 1: Fernand K. (In-depth Case Study) */}
+            <div className="w-[88vw] sm:w-[420px] flex-shrink-0 snap-center flex flex-col justify-between p-6 sm:p-8 bg-[#DFDFDF] border border-black/5 hover:border-[#C5A059]/20 transition-colors duration-300">
+              <div className="flex flex-col gap-4">
+                <span className="text-3xl font-serif text-[#C5A059] leading-none select-none">
+                  “
+                </span>
+                <p className="text-sm font-light text-black/90 italic leading-relaxed">
+                  I was introduced to Dr. Samuel Adanuvo through Launch Code 1.0, and it was insightful and beginner-friendly. After just 3 sessions, I finally had the push to start my business. Since then, consulting with him has been a huge blessing — from marketing to finding my ideal customer to answering every question along the way. Starting a business is intimidating, and I&apos;m grateful to have someone this well-versed guiding me even at this early stage.
+                </p>
+              </div>
+              <div className="mt-8 pt-5 border-t border-black/10 flex items-center justify-between">
+                <span className="text-[10px] font-black tracking-widest text-[#C5A059] uppercase">
+                  FERNAND K.
+                </span>
+                <span className="text-[9px] font-mono tracking-widest text-black/40 uppercase">
+                  VERIFIED CLIENT
+                </span>
+              </div>
+            </div>
+
+            {/* Slide 2: Dr. J.A. & Kwame G. (Combined Punchy Praise) */}
+            <div className="w-[88vw] sm:w-[420px] flex-shrink-0 snap-center flex flex-col justify-between p-6 sm:p-8 bg-[#DFDFDF] border border-black/5 hover:border-[#C5A059]/20 transition-colors duration-300">
+              {/* Top: Dr. J.A. */}
+              <div className="flex flex-col pb-5 border-b border-black/10">
+                <span className="text-2xl font-serif text-[#C5A059] leading-none select-none mb-1.5">
+                  “
+                </span>
+                <p className="text-xs sm:text-sm font-light text-black/90 italic leading-relaxed mb-3">
+                  Such an eye-opener. Dr. Samuel refined my offer and showed me exactly how to attract VIP clientele — it&apos;s million-dollar knowledge, and I&apos;m grateful for the opportunity to learn directly from him. God bless the work he&apos;s doing.
+                </p>
+                <div className="flex items-center justify-between">
+                  <span className="text-[9px] font-black tracking-widest text-[#C5A059] uppercase">
+                    DR. J.A.
+                  </span>
+                  <span className="text-[8px] font-mono tracking-widest text-black/40 uppercase">
+                    VERIFIED CLIENT
+                  </span>
+                </div>
+              </div>
+
+              {/* Bottom: Kwame G. */}
+              <div className="flex flex-col pt-5">
+                <span className="text-2xl font-serif text-[#C5A059] leading-none select-none mb-1.5">
+                  “
+                </span>
+                <p className="text-xs sm:text-sm font-light text-black/90 italic leading-relaxed mb-3">
+                  Samuel showed me the exact steps to take to get new clients, and retain my old ones. He helped me create systems that ensure consistent cash flow.
+                </p>
+                <div className="flex items-center justify-between">
+                  <span className="text-[9px] font-black tracking-widest text-[#C5A059] uppercase">
+                    KWAME G.
+                  </span>
+                  <span className="text-[8px] font-mono tracking-widest text-black/40 uppercase">
+                    VERIFIED CLIENT
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Desktop Track: Standard 3-Column Grid on Screens >= md */}
+          <div className="hidden md:grid md:grid-cols-3 gap-8 items-stretch reveal-group mt-12 md:mt-16">
+            <div className="reveal-child flex flex-col justify-between p-8 bg-[#DFDFDF] border border-black/5 hover:border-[#C5A059]/20 transition-colors duration-300">
               <div className="flex flex-col gap-4">
                 <span className="text-4xl font-serif text-[#C5A059] leading-none select-none">“</span>
                 <p className="text-sm sm:text-base font-light text-black/90 italic leading-relaxed">
-                  I was introduced to Dr. Samuel Adanuvo through Launch Code 1.0, and it was insightful and beginner-friendly. After just 3 sessions, I finally had the push to start my business. Since then, consulting with him has been a huge blessing — from marketing to finding my ideal customer to answering every question along the way. Starting a business is intimidating, and I'm grateful to have someone this well-versed guiding me even at this early stage.
+                  I was introduced to Dr. Samuel Adanuvo through Launch Code 1.0, and it was insightful and beginner-friendly. After just 3 sessions, I finally had the push to start my business. Since then, consulting with him has been a huge blessing — from marketing to finding my ideal customer to answering every question along the way. Starting a business is intimidating, and I&apos;m grateful to have someone this well-versed guiding me even at this early stage.
                 </p>
               </div>
               <div className="mt-8 pt-4 border-t border-black/10 flex items-center justify-between text-[10px] font-black text-[#C5A059] tracking-wider uppercase">
@@ -372,11 +482,11 @@ export default function ConsultingPageClient() {
               </div>
             </div>
 
-            <div className="reveal-child flex flex-col justify-between p-8 bg-[#DFDFDF] border border-black/5">
+            <div className="reveal-child flex flex-col justify-between p-8 bg-[#DFDFDF] border border-black/5 hover:border-[#C5A059]/20 transition-colors duration-300">
               <div className="flex flex-col gap-4">
                 <span className="text-4xl font-serif text-[#C5A059] leading-none select-none">“</span>
                 <p className="text-sm sm:text-base font-light text-black/90 italic leading-relaxed">
-                  Such an eye-opener. Dr. Samuel refined my offer and showed me exactly how to attract VIP clientele — it's million-dollar knowledge, and I'm grateful for the opportunity to learn directly from him. God bless the work he's doing.
+                  Such an eye-opener. Dr. Samuel refined my offer and showed me exactly how to attract VIP clientele — it&apos;s million-dollar knowledge, and I&apos;m grateful for the opportunity to learn directly from him. God bless the work he&apos;s doing.
                 </p>
               </div>
               <div className="mt-8 pt-4 border-t border-black/10 flex items-center justify-between text-[10px] font-black text-[#C5A059] tracking-wider uppercase">
@@ -385,7 +495,7 @@ export default function ConsultingPageClient() {
               </div>
             </div>
 
-            <div className="reveal-child flex flex-col justify-between p-8 bg-[#DFDFDF] border border-black/5">
+            <div className="reveal-child flex flex-col justify-between p-8 bg-[#DFDFDF] border border-black/5 hover:border-[#C5A059]/20 transition-colors duration-300">
               <div className="flex flex-col gap-4">
                 <span className="text-4xl font-serif text-[#C5A059] leading-none select-none">“</span>
                 <p className="text-sm sm:text-base font-light text-black/90 italic leading-relaxed">
