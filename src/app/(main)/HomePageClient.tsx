@@ -124,6 +124,34 @@ export default function Home() {
     }
   };
 
+  const [activeTestimonial, setActiveTestimonial] = useState<number>(0);
+  const testimonialTrackRef = useRef<HTMLDivElement>(null);
+
+  const scrollToTestimonial = (index: number) => {
+    setActiveTestimonial(index);
+    if (!testimonialTrackRef.current) return;
+    const targetCard = testimonialTrackRef.current.children[index] as HTMLElement;
+    if (targetCard) {
+      testimonialTrackRef.current.scrollTo({
+        left: Math.max(0, targetCard.offsetLeft - 16),
+        behavior: "smooth",
+      });
+    }
+  };
+
+  const handleTestimonialScroll = () => {
+    if (!testimonialTrackRef.current) return;
+    const { scrollLeft, clientWidth } = testimonialTrackRef.current;
+    const cardWidth = clientWidth * 0.85;
+    const newIndex = Math.min(
+      content.testimonials.items.length - 1,
+      Math.max(0, Math.round(scrollLeft / (cardWidth || 1)))
+    );
+    if (newIndex !== activeTestimonial) {
+      setActiveTestimonial(newIndex);
+    }
+  };
+
   const handleWaitlistSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!waitlistEmail) return;
@@ -1093,12 +1121,11 @@ export default function Home() {
       {/* 6. Testimonials Section (Relocated on Light Background) */}
       <section
         id="testimonials"
-        className="relative border-t border-black/10 bg-[#E2E2E2] py-18 md:py-24 px-6 lg:px-8 z-10"
+        className="relative border-t border-black/10 bg-[#E2E2E2] py-16 sm:py-20 md:py-24 px-4 sm:px-6 lg:px-8 z-10"
       >
         <div className="max-w-7xl mx-auto">
           {/* Section Header */}
-          <div className="reveal-up text-center mb-24">
-
+          <div className="reveal-up text-center mb-10 sm:mb-14 md:mb-20">
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-black leading-tight uppercase mb-4">
               {content.testimonials.title}
             </h2>
@@ -1107,22 +1134,59 @@ export default function Home() {
             </p>
           </div>
 
-          {/* Staggered Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch reveal-group">
+          {/* Mobile Testimonials Switcher Tabs */}
+          <div className="flex md:hidden items-center justify-center gap-2 mb-4 overflow-x-auto pb-1 scrollbar-none">
+            {content.testimonials.items.map((item, idx) => (
+              <button
+                key={idx}
+                type="button"
+                onClick={() => scrollToTestimonial(idx)}
+                className={`px-3 py-2 text-[10px] font-bold tracking-[0.12em] uppercase border transition-all duration-300 shrink-0 ${
+                  activeTestimonial === idx
+                    ? "border-[#C5A059] bg-[#C5A059] text-black"
+                    : "border-black/10 bg-white/50 text-black/60 hover:text-black"
+                }`}
+              >
+                {item.author}
+              </button>
+            ))}
+          </div>
+
+          {/* Mobile Swipe Cue & Indicator Dots */}
+          <div className="flex md:hidden items-center justify-between text-[10px] font-mono tracking-widest text-black/60 uppercase mb-4 px-1">
+            <span>← Swipe to read testimonials →</span>
+            <div className="flex items-center gap-1.5">
+              {content.testimonials.items.map((_, idx) => (
+                <span
+                  key={idx}
+                  className={`h-1.5 rounded-full transition-all duration-300 ${
+                    activeTestimonial === idx ? "w-5 bg-[#C5A059]" : "w-1.5 bg-black/25"
+                  }`}
+                />
+              ))}
+            </div>
+          </div>
+
+          {/* Testimonials Track: Horizontal Swipe on Mobile, 3-Column Grid on Desktop */}
+          <div
+            ref={testimonialTrackRef}
+            onScroll={handleTestimonialScroll}
+            className="flex md:grid md:grid-cols-3 gap-5 sm:gap-6 md:gap-8 overflow-x-auto md:overflow-visible snap-x snap-mandatory md:snap-none items-stretch -mx-4 sm:-mx-6 md:mx-0 px-4 sm:px-6 md:px-0 pb-4 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] reveal-group"
+          >
             {content.testimonials.items.map((item, idx) => (
               <div
                 key={idx}
-                className="reveal-child flex flex-col justify-between p-10 bg-[#DFDFDF] border border-black/5 hover:border-[#C5A059]/20 transition-colors duration-300 group"
+                className="w-[85vw] sm:w-[380px] md:w-auto flex-shrink-0 snap-center md:flex-initial reveal-child flex flex-col justify-between p-6 sm:p-8 md:p-10 bg-[#DFDFDF] border border-black/5 hover:border-[#C5A059]/20 transition-colors duration-300 group"
               >
-                <div className="flex flex-col gap-6">
-                  <span className="text-4xl font-serif text-[#C5A059] leading-none select-none">
+                <div className="flex flex-col gap-4 sm:gap-6">
+                  <span className="text-3xl sm:text-4xl font-serif text-[#C5A059] leading-none select-none">
                     “
                   </span>
-                  <p className="text-base sm:text-[17px] font-light text-black/90 italic leading-relaxed">
+                  <p className="text-sm sm:text-base md:text-[17px] font-light text-black/90 italic leading-relaxed">
                     {item.quote.replace(/[“”]/g, "")}
                   </p>
                 </div>
-                <div className="mt-12 pt-6 border-t border-black/10 flex items-center justify-between">
+                <div className="mt-8 sm:mt-12 pt-5 sm:pt-6 border-t border-black/10 flex items-center justify-between">
                   <span className="text-[10px] font-black tracking-widest text-[#C5A059] uppercase">
                     {item.author}
                   </span>
