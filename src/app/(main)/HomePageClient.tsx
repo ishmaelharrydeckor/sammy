@@ -142,11 +142,7 @@ export default function Home() {
   const handleTestimonialScroll = () => {
     if (!testimonialTrackRef.current) return;
     const { scrollLeft, clientWidth } = testimonialTrackRef.current;
-    const cardWidth = clientWidth * 0.85;
-    const newIndex = Math.min(
-      content.testimonials.items.length - 1,
-      Math.max(0, Math.round(scrollLeft / (cardWidth || 1)))
-    );
+    const newIndex = scrollLeft > clientWidth * 0.35 ? 1 : 0;
     if (newIndex !== activeTestimonial) {
       setActiveTestimonial(newIndex);
     }
@@ -1134,14 +1130,14 @@ export default function Home() {
             </p>
           </div>
 
-          {/* Mobile Indicator Dots (Centered) */}
+          {/* Mobile Indicator Dots (Centered - 2 Slides) */}
           <div className="flex md:hidden items-center justify-center gap-2 mb-6">
-            {content.testimonials.items.map((_, idx) => (
+            {[0, 1].map((idx) => (
               <button
                 key={idx}
                 type="button"
                 onClick={() => scrollToTestimonial(idx)}
-                aria-label={`Go to testimonial ${idx + 1}`}
+                aria-label={`Go to testimonial slide ${idx + 1}`}
                 className="p-1 focus:outline-none"
               >
                 <span
@@ -1153,26 +1149,88 @@ export default function Home() {
             ))}
           </div>
 
-          {/* Testimonials Track: Horizontal Swipe on Mobile, 3-Column Grid on Desktop */}
+          {/* Mobile Track: 2 Balanced Slides on Mobile (< md) */}
           <div
             ref={testimonialTrackRef}
             onScroll={handleTestimonialScroll}
-            className="flex md:grid md:grid-cols-3 gap-5 sm:gap-6 md:gap-8 overflow-x-auto md:overflow-visible snap-x snap-mandatory md:snap-none items-stretch -mx-4 sm:-mx-6 md:mx-0 px-4 sm:px-6 md:px-0 pb-4 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] reveal-group"
+            className="flex md:hidden gap-5 sm:gap-6 overflow-x-auto snap-x snap-mandatory items-stretch -mx-4 sm:-mx-6 px-4 sm:px-6 pb-4 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
           >
+            {/* Slide 1: Fernand K. (In-depth Case Study) */}
+            <div className="w-[88vw] sm:w-[420px] flex-shrink-0 snap-center flex flex-col justify-between p-6 sm:p-8 bg-[#DFDFDF] border border-black/5 hover:border-[#C5A059]/20 transition-colors duration-300">
+              <div className="flex flex-col gap-4">
+                <span className="text-3xl font-serif text-[#C5A059] leading-none select-none">
+                  “
+                </span>
+                <p className="text-sm font-light text-black/90 italic leading-relaxed">
+                  {content.testimonials.items[0].quote.replace(/[“”]/g, "")}
+                </p>
+              </div>
+              <div className="mt-8 pt-5 border-t border-black/10 flex items-center justify-between">
+                <span className="text-[10px] font-black tracking-widest text-[#C5A059] uppercase">
+                  {content.testimonials.items[0].author}
+                </span>
+                <span className="text-[9px] font-mono tracking-widest text-black/40 uppercase">
+                  VERIFIED CLIENT
+                </span>
+              </div>
+            </div>
+
+            {/* Slide 2: Dr. J.A. & Kwame G. (Combined Punchy Praise) */}
+            <div className="w-[88vw] sm:w-[420px] flex-shrink-0 snap-center flex flex-col justify-between p-6 sm:p-8 bg-[#DFDFDF] border border-black/5 hover:border-[#C5A059]/20 transition-colors duration-300">
+              {/* Top: Dr. J.A. */}
+              <div className="flex flex-col pb-5 border-b border-black/10">
+                <span className="text-2xl font-serif text-[#C5A059] leading-none select-none mb-1.5">
+                  “
+                </span>
+                <p className="text-xs sm:text-sm font-light text-black/90 italic leading-relaxed mb-3">
+                  {content.testimonials.items[1].quote.replace(/[“”]/g, "")}
+                </p>
+                <div className="flex items-center justify-between">
+                  <span className="text-[9px] font-black tracking-widest text-[#C5A059] uppercase">
+                    {content.testimonials.items[1].author}
+                  </span>
+                  <span className="text-[8px] font-mono tracking-widest text-black/40 uppercase">
+                    VERIFIED CLIENT
+                  </span>
+                </div>
+              </div>
+
+              {/* Bottom: Kwame G. */}
+              <div className="flex flex-col pt-5">
+                <span className="text-2xl font-serif text-[#C5A059] leading-none select-none mb-1.5">
+                  “
+                </span>
+                <p className="text-xs sm:text-sm font-light text-black/90 italic leading-relaxed mb-3">
+                  {content.testimonials.items[2].quote.replace(/[“”]/g, "")}
+                </p>
+                <div className="flex items-center justify-between">
+                  <span className="text-[9px] font-black tracking-widest text-[#C5A059] uppercase">
+                    {content.testimonials.items[2].author}
+                  </span>
+                  <span className="text-[8px] font-mono tracking-widest text-black/40 uppercase">
+                    VERIFIED CLIENT
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Desktop Track: Standard 3-Column Grid on Screens >= md */}
+          <div className="hidden md:grid md:grid-cols-3 gap-8 items-stretch reveal-group">
             {content.testimonials.items.map((item, idx) => (
               <div
                 key={idx}
-                className="w-[85vw] sm:w-[380px] md:w-auto flex-shrink-0 snap-center md:flex-initial reveal-child flex flex-col justify-between p-6 sm:p-8 md:p-10 bg-[#DFDFDF] border border-black/5 hover:border-[#C5A059]/20 transition-colors duration-300 group"
+                className="reveal-child flex flex-col justify-between p-10 bg-[#DFDFDF] border border-black/5 hover:border-[#C5A059]/20 transition-colors duration-300 group"
               >
-                <div className="flex flex-col gap-4 sm:gap-6">
-                  <span className="text-3xl sm:text-4xl font-serif text-[#C5A059] leading-none select-none">
+                <div className="flex flex-col gap-6">
+                  <span className="text-4xl font-serif text-[#C5A059] leading-none select-none">
                     “
                   </span>
-                  <p className="text-sm sm:text-base md:text-[17px] font-light text-black/90 italic leading-relaxed">
+                  <p className="text-base sm:text-[17px] font-light text-black/90 italic leading-relaxed">
                     {item.quote.replace(/[“”]/g, "")}
                   </p>
                 </div>
-                <div className="mt-8 sm:mt-12 pt-5 sm:pt-6 border-t border-black/10 flex items-center justify-between">
+                <div className="mt-12 pt-6 border-t border-black/10 flex items-center justify-between">
                   <span className="text-[10px] font-black tracking-widest text-[#C5A059] uppercase">
                     {item.author}
                   </span>
