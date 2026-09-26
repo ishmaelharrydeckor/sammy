@@ -100,6 +100,30 @@ export default function Home() {
   const [contactStatus, setContactStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
   const [contactMessage, setContactMessage] = useState("");
 
+  const [activeOffer, setActiveOffer] = useState<0 | 1>(0);
+  const offerTrackRef = useRef<HTMLDivElement>(null);
+
+  const scrollToOffer = (index: 0 | 1) => {
+    setActiveOffer(index);
+    if (!offerTrackRef.current) return;
+    const targetCard = offerTrackRef.current.children[index] as HTMLElement;
+    if (targetCard) {
+      offerTrackRef.current.scrollTo({
+        left: Math.max(0, targetCard.offsetLeft - 16),
+        behavior: "smooth",
+      });
+    }
+  };
+
+  const handleOfferScroll = () => {
+    if (!offerTrackRef.current) return;
+    const { scrollLeft, clientWidth } = offerTrackRef.current;
+    const newIndex = scrollLeft > clientWidth * 0.35 ? 1 : 0;
+    if (newIndex !== activeOffer) {
+      setActiveOffer(newIndex as 0 | 1);
+    }
+  };
+
   const handleWaitlistSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!waitlistEmail) return;
@@ -486,11 +510,11 @@ export default function Home() {
       {/* 4. Work With Samuel Section */}
       <section
         id="programs"
-        className="relative border-t border-white/5 bg-black py-18 md:py-24 px-6 lg:px-8 z-10"
+        className="relative border-t border-white/5 bg-black py-16 sm:py-20 md:py-24 px-4 sm:px-6 lg:px-8 z-10"
       >
         <div className="max-w-7xl mx-auto">
           {/* Header block */}
-          <div className="reveal-up text-center mb-24">
+          <div className="reveal-up text-center mb-10 sm:mb-14 md:mb-20">
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white leading-tight uppercase mb-4">
               {content.programs.title}
             </h2>
@@ -499,10 +523,57 @@ export default function Home() {
             </p>
           </div>
 
-          {/* Cards Grid */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
-            {/* Offer 1: Flagship 90-Day Consulting (spans 6 columns) */}
-            <div className="lg:col-span-6 flex flex-col justify-between p-10 border border-[#C5A059]/30 rounded-none relative overflow-hidden group hover:border-[#C5A059]/60 transition-colors duration-300">
+          {/* Mobile Offer Switcher Tabs */}
+          <div className="flex lg:hidden items-center justify-center gap-2 mb-4">
+            <button
+              type="button"
+              onClick={() => scrollToOffer(0)}
+              className={`px-3.5 py-2 text-[10px] font-bold tracking-[0.12em] uppercase border transition-all duration-300 ${
+                activeOffer === 0
+                  ? "border-[#C5A059] bg-[#C5A059] text-black"
+                  : "border-white/10 bg-black text-white/60 hover:text-white"
+              }`}
+            >
+              {content.programs.offers[0].badge}: {content.programs.offers[0].title}
+            </button>
+            <button
+              type="button"
+              onClick={() => scrollToOffer(1)}
+              className={`px-3.5 py-2 text-[10px] font-bold tracking-[0.12em] uppercase border transition-all duration-300 ${
+                activeOffer === 1
+                  ? "border-[#C5A059] bg-[#C5A059] text-black"
+                  : "border-white/10 bg-black text-white/60 hover:text-white"
+              }`}
+            >
+              {content.programs.offers[1].badge}: {content.programs.offers[1].title}
+            </button>
+          </div>
+
+          {/* Mobile Swipe Cue & Indicator Dots */}
+          <div className="flex lg:hidden items-center justify-between text-[10px] font-mono tracking-widest text-[#C5A059]/75 uppercase mb-4 px-1">
+            <span>← Swipe to explore offers →</span>
+            <div className="flex items-center gap-1.5">
+              <span
+                className={`h-1.5 rounded-full transition-all duration-300 ${
+                  activeOffer === 0 ? "w-5 bg-[#C5A059]" : "w-1.5 bg-white/30"
+                }`}
+              />
+              <span
+                className={`h-1.5 rounded-full transition-all duration-300 ${
+                  activeOffer === 1 ? "w-5 bg-[#C5A059]" : "w-1.5 bg-white/30"
+                }`}
+              />
+            </div>
+          </div>
+
+          {/* Cards Track: Horizontal Swipe on Mobile, 2-Column Grid on Desktop */}
+          <div
+            ref={offerTrackRef}
+            onScroll={handleOfferScroll}
+            className="flex lg:grid lg:grid-cols-12 gap-5 sm:gap-6 lg:gap-8 overflow-x-auto lg:overflow-visible snap-x snap-mandatory lg:snap-none items-stretch -mx-4 sm:-mx-6 lg:mx-0 px-4 sm:px-6 lg:px-0 pb-4 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
+          >
+            {/* Offer 1: Flagship 90-Day Consulting (spans 6 columns on desktop, 88vw snap card on mobile) */}
+            <div className="w-[88vw] sm:w-[480px] lg:w-auto flex-shrink-0 snap-center lg:flex-initial lg:col-span-6 flex flex-col justify-between p-6 sm:p-8 lg:p-10 border border-[#C5A059]/30 rounded-none relative overflow-hidden group hover:border-[#C5A059]/60 transition-colors duration-300">
               {/* Full-bleed background photo with dark gradient overlay */}
               <div className="absolute inset-0 z-0">
                 <Image
@@ -517,17 +588,17 @@ export default function Home() {
 
               <div className="relative z-10 flex flex-col justify-between h-full min-h-[450px] lg:min-h-full">
                 <div>
-                  <span className="text-[9px] font-light tracking-[0.25em] text-[#C5A059] uppercase bg-[#C5A059]/10 border border-[#C5A059]/20 px-3 py-1 inline-block mb-8">
+                  <span className="text-[9px] font-light tracking-[0.25em] text-[#C5A059] uppercase bg-[#C5A059]/10 border border-[#C5A059]/20 px-3 py-1 inline-block mb-6 sm:mb-8">
                     {content.programs.offers[0].badge}
                   </span>
-                  <h3 className="text-2xl sm:text-3xl font-black tracking-tight text-white uppercase mb-6 leading-tight">
+                  <h3 className="text-xl sm:text-2xl lg:text-3xl font-black tracking-tight text-white uppercase mb-4 sm:mb-6 leading-tight">
                     {content.programs.offers[0].title}
                   </h3>
-                  <p className="text-sm sm:text-[15px] font-light text-white/80 leading-relaxed mb-8">
+                  <p className="text-sm sm:text-[15px] font-light text-white/80 leading-relaxed mb-6 sm:mb-8">
                     {content.programs.offers[0].description}
                   </p>
 
-                  <div className="border-t border-white/10 pt-8 mb-12">
+                  <div className="border-t border-white/10 pt-6 sm:pt-8 mb-8 sm:mb-12">
                     <h4 className="text-[10px] font-bold tracking-[0.2em] text-[#C5A059] uppercase mb-4">
                       {content.programs.offers[0].featuresTitle}
                     </h4>
@@ -541,7 +612,7 @@ export default function Home() {
                     </ul>
                   </div>
                   {content.programs.offers[0].closing && (
-                    <p className="text-xs text-white/70 italic mb-8 font-light leading-relaxed">
+                    <p className="text-xs text-white/70 italic mb-6 sm:mb-8 font-light leading-relaxed">
                       {content.programs.offers[0].closing}
                     </p>
                   )}
@@ -550,7 +621,7 @@ export default function Home() {
                 <div>
                   <Link
                     href="#contact"
-                    className="w-full text-center inline-flex justify-center items-center rounded-none bg-[#C5A059] border border-[#C5A059] text-black px-8 py-4 text-xs font-bold tracking-[0.2em] hover:bg-[#a3803f] hover:border-[#a3803f] transition-all duration-300 hover-scale uppercase"
+                    className="w-full text-center inline-flex justify-center items-center rounded-none bg-[#C5A059] border border-[#C5A059] text-black px-6 sm:px-8 py-3.5 sm:py-4 text-xs font-bold tracking-[0.2em] hover:bg-[#a3803f] hover:border-[#a3803f] transition-all duration-300 hover-scale uppercase"
                   >
                     {content.programs.offers[0].ctaText}
                   </Link>
@@ -558,22 +629,22 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Offer 2: Speaking Engagements (spans 6 columns) */}
-            <div className="lg:col-span-6 grid grid-cols-1 sm:grid-cols-12 bg-black border border-white/5 rounded-none relative overflow-hidden group hover:border-white/10 transition-colors duration-300 items-stretch">
+            {/* Offer 2: Speaking Engagements (spans 6 columns on desktop, 88vw snap card on mobile) */}
+            <div className="w-[88vw] sm:w-[480px] lg:w-auto flex-shrink-0 snap-center lg:flex-initial lg:col-span-6 grid grid-cols-1 sm:grid-cols-12 bg-black border border-white/5 rounded-none relative overflow-hidden group hover:border-white/10 transition-colors duration-300 items-stretch">
               {/* Left Text Panel */}
-              <div className="sm:col-span-7 md:col-span-8 p-10 flex flex-col justify-between h-full border-r border-white/5">
+              <div className="sm:col-span-7 md:col-span-8 p-6 sm:p-8 lg:p-10 flex flex-col justify-between h-full border-b sm:border-b-0 sm:border-r border-white/5">
                 <div>
-                  <span className="text-[9px] font-light tracking-[0.25em] text-white/50 uppercase bg-white/5 border border-white/10 px-3 py-1 inline-block mb-8">
+                  <span className="text-[9px] font-light tracking-[0.25em] text-white/50 uppercase bg-white/5 border border-white/10 px-3 py-1 inline-block mb-6 sm:mb-8">
                     {content.programs.offers[1].badge}
                   </span>
-                  <h3 className="text-2xl sm:text-3xl font-black tracking-tight text-white uppercase mb-6 leading-tight">
+                  <h3 className="text-xl sm:text-2xl lg:text-3xl font-black tracking-tight text-white uppercase mb-4 sm:mb-6 leading-tight">
                     {content.programs.offers[1].title}
                   </h3>
-                  <p className="text-sm sm:text-[15px] font-light text-white/75 leading-relaxed mb-8">
+                  <p className="text-sm sm:text-[15px] font-light text-white/75 leading-relaxed mb-6 sm:mb-8">
                     {content.programs.offers[1].description}
                   </p>
 
-                  <div className="border-t border-white/5 pt-8 mb-8">
+                  <div className="border-t border-white/5 pt-6 sm:pt-8 mb-6 sm:mb-8">
                     <h4 className="text-[10px] font-bold tracking-[0.2em] text-[#C5A059] uppercase mb-4">
                       {content.programs.offers[1].featuresTitle}
                     </h4>
@@ -586,15 +657,17 @@ export default function Home() {
                       ))}
                     </ul>
                   </div>
-                  <p className="text-[10px] text-white/40 italic mb-8 font-light leading-relaxed">
-                    {content.programs.offers[1].closing}
-                  </p>
+                  {content.programs.offers[1].closing && (
+                    <p className="text-[10px] text-white/40 italic mb-6 sm:mb-8 font-light leading-relaxed">
+                      {content.programs.offers[1].closing}
+                    </p>
+                  )}
                 </div>
 
                 <div>
                   <Link
                     href="#contact"
-                    className="w-full text-center inline-flex justify-center items-center rounded-none border border-white/20 bg-transparent text-[#C5A059] px-8 py-4 text-xs font-bold tracking-[0.2em] hover:bg-white/5 transition-all duration-300 uppercase"
+                    className="w-full text-center inline-flex justify-center items-center rounded-none border border-white/20 bg-transparent text-[#C5A059] px-6 sm:px-8 py-3.5 sm:py-4 text-xs font-bold tracking-[0.2em] hover:bg-white/5 transition-all duration-300 uppercase"
                   >
                     {content.programs.offers[1].ctaText}
                   </Link>
@@ -602,7 +675,7 @@ export default function Home() {
               </div>
 
               {/* Right Full-Height Photo Panel */}
-              <div className="sm:col-span-5 md:col-span-4 relative min-h-[300px] sm:min-h-full w-full bg-zinc-950 overflow-hidden">
+              <div className="sm:col-span-5 md:col-span-4 relative min-h-[220px] sm:min-h-full w-full bg-zinc-950 overflow-hidden">
                 <Image
                   src="/images/mmm-1.0/mmm_6.jpg"
                   alt="Dr. Samuel K. Adanuvo speaking engagement"
