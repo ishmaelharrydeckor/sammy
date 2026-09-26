@@ -1134,37 +1134,23 @@ export default function Home() {
             </p>
           </div>
 
-          {/* Mobile Testimonials Switcher Tabs */}
-          <div className="flex md:hidden items-center justify-center gap-2 mb-4 overflow-x-auto pb-1 scrollbar-none">
-            {content.testimonials.items.map((item, idx) => (
+          {/* Mobile Indicator Dots (Centered) */}
+          <div className="flex md:hidden items-center justify-center gap-2 mb-6">
+            {content.testimonials.items.map((_, idx) => (
               <button
                 key={idx}
                 type="button"
                 onClick={() => scrollToTestimonial(idx)}
-                className={`px-3 py-2 text-[10px] font-bold tracking-[0.12em] uppercase border transition-all duration-300 shrink-0 ${
-                  activeTestimonial === idx
-                    ? "border-[#C5A059] bg-[#C5A059] text-black"
-                    : "border-black/10 bg-white/50 text-black/60 hover:text-black"
-                }`}
+                aria-label={`Go to testimonial ${idx + 1}`}
+                className="p-1 focus:outline-none"
               >
-                {item.author}
-              </button>
-            ))}
-          </div>
-
-          {/* Mobile Swipe Cue & Indicator Dots */}
-          <div className="flex md:hidden items-center justify-between text-[10px] font-mono tracking-widest text-black/60 uppercase mb-4 px-1">
-            <span>← Swipe to read testimonials →</span>
-            <div className="flex items-center gap-1.5">
-              {content.testimonials.items.map((_, idx) => (
                 <span
-                  key={idx}
-                  className={`h-1.5 rounded-full transition-all duration-300 ${
-                    activeTestimonial === idx ? "w-5 bg-[#C5A059]" : "w-1.5 bg-black/25"
+                  className={`block h-1.5 rounded-full transition-all duration-300 ${
+                    activeTestimonial === idx ? "w-6 bg-[#C5A059]" : "w-1.5 bg-black/25"
                   }`}
                 />
-              ))}
-            </div>
+              </button>
+            ))}
           </div>
 
           {/* Testimonials Track: Horizontal Swipe on Mobile, 3-Column Grid on Desktop */}
